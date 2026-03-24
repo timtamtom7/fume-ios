@@ -371,3 +371,320 @@ struct ThinkingDotsView: View {
         return sin((animPhase + CGFloat(delay)) * .pi) * 8
     }
 }
+
+// MARK: - Tag Pill/Chip Design
+
+struct TagPillView: View {
+    let tag: Tag
+    var isRemovable: Bool = false
+    var onRemove: (() -> Void)?
+
+    var body: some View {
+        HStack(spacing: 5) {
+            Circle()
+                .fill(Color(hex: tag.colorHex))
+                .frame(width: 8, height: 8)
+
+            Text(tag.name)
+                .font(.system(size: 12, weight: .medium))
+                .foregroundStyle(FumeColors.textPrimary)
+
+            if isRemovable {
+                Button {
+                    onRemove?()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 12))
+                        .foregroundStyle(FumeColors.textSecondary)
+                }
+            }
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(
+            Capsule()
+                .fill(Color(hex: tag.colorHex).opacity(0.15))
+        )
+        .overlay(
+            Capsule()
+                .stroke(Color(hex: tag.colorHex).opacity(0.3), lineWidth: 0.5)
+        )
+    }
+}
+
+// MARK: - Tag Color Picker
+
+struct TagColorPicker: View {
+    @Binding var selectedColor: TagColor
+
+    var body: some View {
+        HStack(spacing: 10) {
+            ForEach(TagColor.allCases, id: \.self) { color in
+                Button {
+                    selectedColor = color
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(Color(hex: color.rawValue))
+                            .frame(width: 28, height: 28)
+
+                        if selectedColor == color {
+                            Circle()
+                                .stroke(Color.white, lineWidth: 2)
+                                .frame(width: 28, height: 28)
+
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 11, weight: .bold))
+                                .foregroundStyle(.white)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Search Highlight Design
+
+struct SearchHighlightBadge: View {
+    let matchScore: Double
+
+    var body: some View {
+        HStack(spacing: 4) {
+            Image(systemName: "sparkle.magnifyingglass")
+                .font(.system(size: 10))
+
+            Text("\(Int(matchScore * 100))% match")
+                .font(.system(size: 10, weight: .medium))
+        }
+        .foregroundStyle(FumeColors.accent)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+        .background(
+            Capsule()
+                .fill(FumeColors.accent.opacity(0.15))
+        )
+    }
+}
+
+// MARK: - Import Source Type Icons
+
+struct ImportSourceIcon: View {
+    let type: ImportSourceType
+    var size: CGFloat = 36
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(iconBackgroundColor.opacity(0.15))
+                .frame(width: size + 20, height: size + 20)
+
+            Image(systemName: type.icon)
+                .font(.system(size: size * 0.55))
+                .foregroundStyle(iconBackgroundColor)
+        }
+    }
+
+    private var iconBackgroundColor: Color {
+        switch type {
+        case .obsidian: return Color(hex: "8b5cf6")
+        case .notion: return Color(hex: "ffffff")
+        case .appleNotes: return FumeColors.accent
+        }
+    }
+}
+
+// MARK: - Source Connection Visualization (Detailed)
+
+struct SourceConnectionGraph: View {
+    let sources: [Source]
+    @State private var phase: CGFloat = 0
+
+    var body: some View {
+        GeometryReader { geometry in
+            let center = CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2)
+            let count = sources.count
+            let radius = min(geometry.size.width, geometry.size.height) / 2 - 30
+
+            ZStack {
+                // Outer ring glow
+                Circle()
+                    .stroke(FumeColors.accent.opacity(0.1 + phase * 0.1), lineWidth: 1)
+                    .frame(width: radius * 2 + 40, height: radius * 2 + 40)
+                    .position(center)
+
+                // Connection lines between nodes
+                ForEach(0..<count, id: \.self) { i in
+                    ForEach((i+1)..<count, id: \.self) { j in
+                        let angle1 = angleFor(index: i, total: count)
+                        let angle2 = angleFor(index: j, total: count)
+                        let p1 = pointOnCircle(center: center, radius: radius, angle: angle1)
+                        let p2 = pointOnCircle(center: center, radius: radius, angle: angle2)
+
+                        Path { path in
+                            path.move(to: p1)
+                            path.addLine(to: p2)
+                        }
+                        .stroke(
+                            FumeColors.accent.opacity(0.1 + phase * 0.1),
+                            style: StrokeStyle(lineWidth: 1, dash: [3, 4])
+                        )
+                    }
+                }
+
+                // Connection lines to center
+                ForEach(0..<count, id: \.self) { i in
+                    let angle = angleFor(index: i, total: count)
+                    let nodePoint = pointOnCircle(center: center, radius: radius, angle: angle)
+
+                    Path { path in
+                        path.move(to: center)
+                        path.addQuadCurve(to: nodePoint, control: CGPoint(
+                            x: (center.x + nodePoint.x) / 2 + cos(angle + .pi/2) * 10,
+                            y: (center.y + nodePoint.y) / 2 + sin(angle + .pi/2) * 10
+                        ))
+                    }
+                    .stroke(
+                        FumeColors.accent.opacity(0.2 + phase * 0.15),
+                        style: StrokeStyle(lineWidth: 1.5, dash: [5, 3])
+                    )
+                }
+
+                // Center node
+                ZStack {
+                    Circle()
+                        .fill(FumeColors.accent.opacity(0.2))
+                        .frame(width: 36, height: 36)
+
+                    Circle()
+                        .stroke(FumeColors.accent, lineWidth: 1.5)
+                        .frame(width: 36, height: 36)
+
+                    Image(systemName: "brain.head.profile")
+                        .font(.system(size: 16))
+                        .foregroundStyle(FumeColors.accent)
+                }
+                .position(center)
+
+                // Outer nodes
+                ForEach(Array(sources.enumerated()), id: \.element.id) { i, source in
+                    let angle = angleFor(index: i, total: count)
+                    let point = pointOnCircle(center: center, radius: radius, angle: angle)
+
+                    ZStack {
+                        Circle()
+                            .fill(FumeColors.surfaceRaised)
+                            .frame(width: 30, height: 30)
+
+                        Circle()
+                            .stroke(FumeColors.accent.opacity(0.5), lineWidth: 1)
+                            .frame(width: 30, height: 30)
+
+                        Image(systemName: source.type.icon)
+                            .font(.system(size: 13))
+                            .foregroundStyle(FumeColors.accent)
+                    }
+                    .position(point)
+                }
+            }
+        }
+        .frame(height: 200)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
+                phase = 1
+            }
+        }
+    }
+
+    private func angleFor(index: Int, total: Int) -> CGFloat {
+        guard total > 0 else { return 0 }
+        return -CGFloat.pi / 2 + CGFloat(index) * (CGFloat.pi * 2 / CGFloat(total))
+    }
+
+    private func pointOnCircle(center: CGPoint, radius: CGFloat, angle: CGFloat) -> CGPoint {
+        CGPoint(
+            x: center.x + radius * cos(angle),
+            y: center.y + radius * sin(angle)
+        )
+    }
+}
+
+// MARK: - Animated Import Progress
+
+struct ImportProgressView: View {
+    @State private var isAnimating = false
+
+    var body: some View {
+        HStack(spacing: 16) {
+            ZStack {
+                Circle()
+                    .stroke(FumeColors.surfaceRaised, lineWidth: 3)
+                    .frame(width: 44, height: 44)
+
+                Circle()
+                    .trim(from: 0, to: 0.7)
+                    .stroke(FumeColors.accent, style: StrokeStyle(lineWidth: 3, lineCap: .round))
+                    .frame(width: 44, height: 44)
+                    .rotationEffect(.degrees(isAnimating ? 360 : 0))
+                    .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: isAnimating)
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Importing files...")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundStyle(FumeColors.textPrimary)
+
+                Text("Processing markdown content")
+                    .font(.system(size: 12))
+                    .foregroundStyle(FumeColors.textSecondary)
+            }
+        }
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(FumeColors.glassOverlay)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(FumeColors.border, lineWidth: 0.5)
+                )
+        )
+        .onAppear {
+            isAnimating = true
+        }
+    }
+}
+
+// MARK: - Keyword Match Indicator
+
+struct KeywordMatchIndicator: View {
+    let matchedKeywords: [String]
+    let text: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            // Matched keyword chips
+            if !matchedKeywords.isEmpty {
+                HStack(spacing: 6) {
+                    ForEach(matchedKeywords.prefix(4), id: \.self) { keyword in
+                        Text(keyword)
+                            .font(.system(size: 10, weight: .medium))
+                            .foregroundStyle(FumeColors.accent)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 3)
+                            .background(
+                                Capsule()
+                                    .fill(FumeColors.accent.opacity(0.15))
+                            )
+                    }
+
+                    if matchedKeywords.count > 4 {
+                        Text("+\(matchedKeywords.count - 4)")
+                            .font(.system(size: 10))
+                            .foregroundStyle(FumeColors.textSecondary)
+                    }
+                }
+            }
+        }
+    }
+}
+

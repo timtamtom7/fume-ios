@@ -15,6 +15,7 @@
 		35FE8DA5FFE3E08C3C1215C9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE75F734BCD4366FD9158BF /* HomeView.swift */; };
 		3F82BCB2329FFFD422164A21 /* AddContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4A52A5AB490F5ABDC52A5 /* AddContentViewModel.swift */; };
 		41B420644CA7F688F7061E00 /* FumeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4798541EA4B5BFFEE0CA3D /* FumeTheme.swift */; };
+		4809FAF79C96A88A7574AC85 /* FileImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91113E75831605DE97026F /* FileImportService.swift */; };
 		49C60C387C99AB2EF2504338 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = D4265F11548E8CD216453E5F /* SQLite */; };
 		5E429466ED639ED23F7CCD0C /* SourceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58664ACE4BF6E9E7387B6737 /* SourceDetailView.swift */; };
 		82E3FB5C9EFA0AA7430ABE38 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */; };
@@ -42,6 +43,7 @@
 		08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateViews.swift; sourceTree = "<group>"; };
 		22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AppStoreMetadata.md; sourceTree = "<group>"; };
 		45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddingService.swift; sourceTree = "<group>"; };
+		4B91113E75831605DE97026F /* FileImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImportService.swift; sourceTree = "<group>"; };
 		5439EE72C610D04A5A969B6B /* AddContentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentSheet.swift; sourceTree = "<group>"; };
 		554DD9CFFD9B9044761D79A1 /* FumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeApp.swift; sourceTree = "<group>"; };
 		565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */,
 				BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */,
 				45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */,
+				4B91113E75831605DE97026F /* FileImportService.swift */,
 				C8A67A4E4D841534DF8DEFAB /* SpeechService.swift */,
 				CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */,
 				0588D907C35BEF8B596225CC /* VisionService.swift */,
@@ -279,6 +282,7 @@
 				25120B71D21FA4FF2623278E /* DatabaseService.swift in Sources */,
 				09E4FEFAD3FB336B56E75817 /* EmbeddingService.swift in Sources */,
 				A30402C0BEEC1FDECBC840DD /* ErrorStateViews.swift in Sources */,
+				4809FAF79C96A88A7574AC85 /* FileImportService.swift in Sources */,
 				312766EAA5B39DD3F117C967 /* FumeApp.swift in Sources */,
 				945853A048CC303D24093F12 /* FumeGraphics.swift in Sources */,
 				41B420644CA7F688F7061E00 /* FumeTheme.swift in Sources */,

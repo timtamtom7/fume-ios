@@ -29,6 +29,49 @@ enum SourceType: String, Codable, CaseIterable {
     }
 }
 
+// MARK: - Tag
+struct Tag: Identifiable, Codable, Equatable, Hashable {
+    let id: UUID
+    var name: String
+    var colorHex: String
+    var createdAt: Date
+
+    init(id: UUID = UUID(), name: String, colorHex: String = "f59e0b", createdAt: Date = Date()) {
+        self.id = id
+        self.name = name
+        self.colorHex = colorHex
+        self.createdAt = createdAt
+    }
+
+    var color: TagColor {
+        TagColor(rawValue: colorHex) ?? .amber
+    }
+}
+
+enum TagColor: String, CaseIterable {
+    case amber = "f59e0b"
+    case blue = "3b82f6"
+    case green = "10b981"
+    case purple = "8b5cf6"
+    case red = "ef4444"
+    case pink = "ec4899"
+    case teal = "14b8a6"
+    case orange = "f97316"
+
+    var swatch: String {
+        switch self {
+        case .amber: return "amber.fill"
+        case .blue: return "blue.fill"
+        case .green: return "green.fill"
+        case .purple: return "purple.fill"
+        case .red: return "red.fill"
+        case .pink: return "pink.fill"
+        case .teal: return "teal.fill"
+        case .orange: return "orange.fill"
+        }
+    }
+}
+
 // MARK: - Source Model
 struct Source: Identifiable, Codable, Equatable {
     let id: UUID
@@ -40,6 +83,7 @@ struct Source: Identifiable, Codable, Equatable {
     var createdAt: Date
     var updatedAt: Date
     var embedding: [Float]?
+    var tagIDs: [UUID]
 
     init(
         id: UUID = UUID(),
@@ -50,7 +94,8 @@ struct Source: Identifiable, Codable, Equatable {
         thumbnailData: Data? = nil,
         createdAt: Date = Date(),
         updatedAt: Date = Date(),
-        embedding: [Float]? = nil
+        embedding: [Float]? = nil,
+        tagIDs: [UUID] = []
     ) {
         self.id = id
         self.type = type
@@ -61,6 +106,7 @@ struct Source: Identifiable, Codable, Equatable {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.embedding = embedding
+        self.tagIDs = tagIDs
     }
 
     var formattedDate: String {

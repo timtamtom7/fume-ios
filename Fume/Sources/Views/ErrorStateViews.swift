@@ -8,6 +8,8 @@ enum FumeError: Error, Identifiable, Equatable {
     case speechTranscriptionFailed
     case storageLimitReached
     case networkError
+    case importFailed
+    case noSearchResults
 
     var id: String {
         switch self {
@@ -16,6 +18,8 @@ enum FumeError: Error, Identifiable, Equatable {
         case .speechTranscriptionFailed: return "speech_failed"
         case .storageLimitReached: return "storage_limit"
         case .networkError: return "network_error"
+        case .importFailed: return "import_failed"
+        case .noSearchResults: return "no_search_results"
         }
     }
 
@@ -26,6 +30,8 @@ enum FumeError: Error, Identifiable, Equatable {
         case .speechTranscriptionFailed: return "waveform.slash"
         case .storageLimitReached: return "internaldrive.fill.badge.xmark"
         case .networkError: return "wifi.exclamationmark"
+        case .importFailed: return "square.and.arrow.down.on.square.slash"
+        case .noSearchResults: return "magnifyingglass"
         }
     }
 
@@ -36,6 +42,8 @@ enum FumeError: Error, Identifiable, Equatable {
         case .speechTranscriptionFailed: return "Transcription failed"
         case .storageLimitReached: return "Storage full"
         case .networkError: return "Connection issue"
+        case .importFailed: return "Import failed"
+        case .noSearchResults: return "No results found"
         }
     }
 
@@ -51,6 +59,10 @@ enum FumeError: Error, Identifiable, Equatable {
             return "You've hit the free plan limit of 50 sources. Upgrade to Pro for unlimited storage."
         case .networkError:
             return "Couldn't reach the network. For article imports, make sure you have an active connection."
+        case .importFailed:
+            return "The file couldn't be imported. Make sure it's a valid markdown or text file."
+        case .noSearchResults:
+            return "No sources matched your search. Try different keywords or add more content."
         }
     }
 
@@ -61,6 +73,8 @@ enum FumeError: Error, Identifiable, Equatable {
         case .speechTranscriptionFailed: return "Open Settings"
         case .storageLimitReached: return "Upgrade to Pro"
         case .networkError: return "Check connection"
+        case .importFailed: return "Choose different file"
+        case .noSearchResults: return "Clear search"
         }
     }
 }
