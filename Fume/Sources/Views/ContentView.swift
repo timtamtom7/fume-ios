@@ -37,5 +37,9 @@ struct MainTabView: View {
                 .tag(AppState.Tab.library)
         }
         .tint(FumeColors.accent)
+        .overlay(alignment: .top) {
+            SyncStatusBar()
+                .padding(.top, 4)
+        }
     }
 }
