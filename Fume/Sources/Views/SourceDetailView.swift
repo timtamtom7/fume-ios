@@ -46,6 +46,9 @@ struct SourceDetailView: View {
                         // Content
                         contentSection
 
+                        // AI Analysis
+                        AIAnalysisView(source: source)
+
                         // URL if article
                         if let url = source.url, let articleURL = URL(string: url) {
                             urlSection(articleURL)

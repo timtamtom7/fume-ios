@@ -11,12 +11,14 @@
 		13B4E5FC044365615ED2A215 /* AppStoreMetadata.md in Resources */ = {isa = PBXBuildFile; fileRef = 22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */; };
 		22F5A8351B0C4B9243703708 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4499BC2FE4DEE5CAE49C999 /* LibraryViewModel.swift */; };
 		25120B71D21FA4FF2623278E /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */; };
+		2E3433344DE863B57B680931 /* AutomationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BCA0E725C31F7A9460D90B /* AutomationService.swift */; };
 		312766EAA5B39DD3F117C967 /* FumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DD9CFFD9B9044761D79A1 /* FumeApp.swift */; };
 		35FE8DA5FFE3E08C3C1215C9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE75F734BCD4366FD9158BF /* HomeView.swift */; };
 		3F82BCB2329FFFD422164A21 /* AddContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4A52A5AB490F5ABDC52A5 /* AddContentViewModel.swift */; };
 		41B420644CA7F688F7061E00 /* FumeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4798541EA4B5BFFEE0CA3D /* FumeTheme.swift */; };
 		4809FAF79C96A88A7574AC85 /* FileImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91113E75831605DE97026F /* FileImportService.swift */; };
 		49C60C387C99AB2EF2504338 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = D4265F11548E8CD216453E5F /* SQLite */; };
+		4C2F5E408F43D21E626CC2BC /* AIAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397EF9196610084E528D23E2 /* AIAnalysisView.swift */; };
 		5E429466ED639ED23F7CCD0C /* SourceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58664ACE4BF6E9E7387B6737 /* SourceDetailView.swift */; };
 		6C2A042C3DF87BAEE00DF4AF /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */; };
 		82E3FB5C9EFA0AA7430ABE38 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */; };
@@ -29,6 +31,7 @@
 		A9C8FBF4E79001CB2360EFA9 /* AIQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */; };
 		ABAF1D24086E56BBDD1F205A /* AddContentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5439EE72C610D04A5A969B6B /* AddContentSheet.swift */; };
 		B7A0A8411AEB3255A6612CE4 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533079145153552F9C93F98 /* LibraryView.swift */; };
+		BFD0B2FC716B7BC382862C2E /* IntelligenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */; };
 		C2CCD172B22967C3E87AA742 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67A9128C4F4044D4DE0319 /* AppState.swift */; };
 		DC9A469D593CE70F78A9AFB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884406290CCC42A705E3D21 /* ContentView.swift */; };
 		E0AB04DB37CE1B01851095CE /* RealContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F279C7648779893FB8CEE2E /* RealContent.swift */; };
@@ -36,6 +39,7 @@
 		F1675F944D95230E7EDD6796 /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588D907C35BEF8B596225CC /* VisionService.swift */; };
 		F293A839047218FECD5F54B1 /* URLFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */; };
 		F6B8AC8063E44E82F464527B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D4EE04F2434A18EB439375 /* OnboardingView.swift */; };
+		F7C66C9E23606C4A49817D98 /* FumeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7875135FF1895D40DDAE141 /* FumeWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,7 @@
 		0588D907C35BEF8B596225CC /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
 		08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateViews.swift; sourceTree = "<group>"; };
 		22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AppStoreMetadata.md; sourceTree = "<group>"; };
+		397EF9196610084E528D23E2 /* AIAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAnalysisView.swift; sourceTree = "<group>"; };
 		45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddingService.swift; sourceTree = "<group>"; };
 		4B91113E75831605DE97026F /* FileImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImportService.swift; sourceTree = "<group>"; };
 		5439EE72C610D04A5A969B6B /* AddContentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentSheet.swift; sourceTree = "<group>"; };
@@ -50,22 +55,28 @@
 		565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		56D4EE04F2434A18EB439375 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		58664ACE4BF6E9E7387B6737 /* SourceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDetailView.swift; sourceTree = "<group>"; };
+		5A0DDA7E4943034B7152A083 /* FumeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FumeWidget.entitlements; sourceTree = "<group>"; };
+		60BCA0E725C31F7A9460D90B /* AutomationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomationService.swift; sourceTree = "<group>"; };
 		68A000A9143B0D3E9DD09E10 /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		6F279C7648779893FB8CEE2E /* RealContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealContent.swift; sourceTree = "<group>"; };
 		6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		7C67A9128C4F4044D4DE0319 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		7D86E3DDF41D2F33EFB1E804 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		8D2A2B837E5EB585634FD596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		947770CE0DFD971130928CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A533079145153552F9C93F98 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		B884406290CCC42A705E3D21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntelligenceService.swift; sourceTree = "<group>"; };
 		BF19493A3AA2DAA3CAA8C147 /* OnboardingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStorage.swift; sourceTree = "<group>"; };
 		BFB4A52A5AB490F5ABDC52A5 /* AddContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentViewModel.swift; sourceTree = "<group>"; };
 		BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		C8A67A4E4D841534DF8DEFAB /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		CAC14FF0E6B8061D02ED5EF1 /* Fume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fume.entitlements; sourceTree = "<group>"; };
 		CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFetchService.swift; sourceTree = "<group>"; };
+		D01091D7B2BA2958DBCF2FB4 /* FumeWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FumeWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4798541EA4B5BFFEE0CA3D /* FumeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeTheme.swift; sourceTree = "<group>"; };
 		E385D46E09F092CBDE07EC74 /* FumeGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeGraphics.swift; sourceTree = "<group>"; };
+		E7875135FF1895D40DDAE141 /* FumeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeWidget.swift; sourceTree = "<group>"; };
 		EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIQueryService.swift; sourceTree = "<group>"; };
 		F4499BC2FE4DEE5CAE49C999 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 		FC1FBF32D3E7866505D3A4AD /* Fume.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Fume.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +98,7 @@
 		13B17471C7357F3AB8D340A0 = {
 			isa = PBXGroup;
 			children = (
+				53D0ECFA536CAFC593B7A0CE /* FumeWidget */,
 				26A84DC699E259C77A61B018 /* Resources */,
 				EDCAC396E4F454D41FFF5626 /* Sources */,
 				6DB8C5544B531A956A2C6AB3 /* Products */,
@@ -115,6 +127,16 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		53D0ECFA536CAFC593B7A0CE /* FumeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				5A0DDA7E4943034B7152A083 /* FumeWidget.entitlements */,
+				E7875135FF1895D40DDAE141 /* FumeWidget.swift */,
+				947770CE0DFD971130928CF1 /* Info.plist */,
+			);
+			path = FumeWidget;
+			sourceTree = "<group>";
+		};
 		54C74E5D0F910C0CE76AF680 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				FC1FBF32D3E7866505D3A4AD /* Fume.app */,
+				D01091D7B2BA2958DBCF2FB4 /* FumeWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,10 +169,12 @@
 			isa = PBXGroup;
 			children = (
 				EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */,
+				60BCA0E725C31F7A9460D90B /* AutomationService.swift */,
 				BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */,
 				45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */,
 				6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */,
 				4B91113E75831605DE97026F /* FileImportService.swift */,
+				BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */,
 				C8A67A4E4D841534DF8DEFAB /* SpeechService.swift */,
 				CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */,
 				0588D907C35BEF8B596225CC /* VisionService.swift */,
@@ -176,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				5439EE72C610D04A5A969B6B /* AddContentSheet.swift */,
+				397EF9196610084E528D23E2 /* AIAnalysisView.swift */,
 				B884406290CCC42A705E3D21 /* ContentView.swift */,
 				08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */,
 				E385D46E09F092CBDE07EC74 /* FumeGraphics.swift */,
@@ -226,6 +252,21 @@
 			productReference = FC1FBF32D3E7866505D3A4AD /* Fume.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FC71188B0268CB96F6AB71F5 /* FumeWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 143FF038DA01AA4454FEE120 /* Build configuration list for PBXNativeTarget "FumeWidget" */;
+			buildPhases = (
+				06459D0E41C434F0DEE570B6 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FumeWidget;
+			productName = FumeWidget;
+			productReference = D01091D7B2BA2958DBCF2FB4 /* FumeWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -236,6 +277,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					912864293913DD6B955DAE8C = {
+						DevelopmentTeam = "";
+					};
+					FC71188B0268CB96F6AB71F5 = {
 						DevelopmentTeam = "";
 					};
 				};
@@ -256,6 +300,7 @@
 			projectRoot = "";
 			targets = (
 				912864293913DD6B955DAE8C /* Fume */,
+				FC71188B0268CB96F6AB71F5 /* FumeWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -273,14 +318,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		06459D0E41C434F0DEE570B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7C66C9E23606C4A49817D98 /* FumeWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC170A4EC70C3D20B4FC53E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2F5E408F43D21E626CC2BC /* AIAnalysisView.swift in Sources */,
 				A9C8FBF4E79001CB2360EFA9 /* AIQueryService.swift in Sources */,
 				ABAF1D24086E56BBDD1F205A /* AddContentSheet.swift in Sources */,
 				3F82BCB2329FFFD422164A21 /* AddContentViewModel.swift in Sources */,
 				C2CCD172B22967C3E87AA742 /* AppState.swift in Sources */,
+				2E3433344DE863B57B680931 /* AutomationService.swift in Sources */,
 				DC9A469D593CE70F78A9AFB3 /* ContentView.swift in Sources */,
 				25120B71D21FA4FF2623278E /* DatabaseService.swift in Sources */,
 				09E4FEFAD3FB336B56E75817 /* EmbeddingService.swift in Sources */,
@@ -292,6 +347,7 @@
 				41B420644CA7F688F7061E00 /* FumeTheme.swift in Sources */,
 				35FE8DA5FFE3E08C3C1215C9 /* HomeView.swift in Sources */,
 				82E3FB5C9EFA0AA7430ABE38 /* HomeViewModel.swift in Sources */,
+				BFD0B2FC716B7BC382862C2E /* IntelligenceService.swift in Sources */,
 				B7A0A8411AEB3255A6612CE4 /* LibraryView.swift in Sources */,
 				22F5A8351B0C4B9243703708 /* LibraryViewModel.swift in Sources */,
 				8C03A0B7BE7EDC4D4F7AE809 /* Models.swift in Sources */,
@@ -325,6 +381,20 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		2C794CEA62F87C39A15B8657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FumeWidget/FumeWidget.entitlements;
+				INFOPLIST_FILE = FumeWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fume.app.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
 		};
 		351AA7F7601F8A80CB181D19 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -474,9 +544,32 @@
 			};
 			name = Release;
 		};
+		F882EB71C0333BC7F1ED80D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FumeWidget/FumeWidget.entitlements;
+				INFOPLIST_FILE = FumeWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fume.app.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		143FF038DA01AA4454FEE120 /* Build configuration list for PBXNativeTarget "FumeWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F882EB71C0333BC7F1ED80D4 /* Debug */,
+				2C794CEA62F87C39A15B8657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		20E7D71037A4DCD84FD897EF /* Build configuration list for PBXNativeTarget "Fume" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

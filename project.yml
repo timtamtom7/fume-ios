@@ -45,3 +45,22 @@ targets:
       path: Fume/Resources/Fume.entitlements
       properties:
         com.apple.security.app-sandbox: true
+
+  FumeWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - FumeWidget
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fume.app.widget
+        INFOPLIST_FILE: FumeWidget/Info.plist
+        SKIP_INSTALL: "YES"
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"
+        ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME: WidgetBackground
+    entitlements:
+      path: FumeWidget/FumeWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups:
+          - group.com.fume.app
