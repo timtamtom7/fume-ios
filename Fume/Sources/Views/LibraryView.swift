@@ -8,6 +8,10 @@ struct LibraryView: View {
     @State private var showDeleteConfirmation = false
     @State private var showTagSheet = false
     @State private var showImportOptions = false
+    @State private var showExportOptions = false
+    @State private var isExporting = false
+    @State private var exportError: Error?
+    @State private var showExportError = false
     @State private var tagToEdit: Tag?
 
     var body: some View {
@@ -47,10 +51,20 @@ struct LibraryView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 12) {
-                        Button {
-                            showImportOptions = true
+                        Menu {
+                            Button {
+                                showImportOptions = true
+                            } label: {
+                                Label("Import Files", systemImage: "square.and.arrow.down")
+                            }
+
+                            Button {
+                                showExportOptions = true
+                            } label: {
+                                Label("Export Library", systemImage: "square.and.arrow.up")
+                            }
                         } label: {
-                            Image(systemName: "square.and.arrow.down")
+                            Image(systemName: "square.and.arrow.down.on.square")
                                 .foregroundStyle(FumeColors.accent)
                         }
 
@@ -103,6 +117,21 @@ struct LibraryView: View {
                     }
                 )
                 .presentationDetents([.medium])
+            }
+            .sheet(isPresented: $showExportOptions) {
+                ExportOptionsSheet(
+                    sources: viewModel.filteredSources.isEmpty ? viewModel.sources : viewModel.filteredSources,
+                    isExporting: $isExporting,
+                    onExport: { result in
+                        shareExport(result)
+                    }
+                )
+                .presentationDetents([.medium])
+            }
+            .alert("Export Failed", isPresented: $showExportError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(exportError?.localizedDescription ?? "Unknown error")
             }
             .alert("Import Failed", isPresented: $viewModel.showImportError) {
                 Button("OK", role: .cancel) {}
@@ -824,5 +853,185 @@ struct ImportSourceOption: View {
                     )
             )
         }
+    }
+}
+
+// MARK: - Export Options Sheet
+
+struct ExportOptionsSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    let sources: [Source]
+    @Binding var isExporting: Bool
+    let onExport: (ExportResult) -> Void
+
+    @State private var selectedFormat: ExportFormat = .obsidian
+    @State private var exportResult: ExportResult?
+    @State private var showShareSheet = false
+    @State private var error: Error?
+    @State private var showError = false
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                FumeColors.background
+                    .ignoresSafeArea()
+
+                VStack(spacing: 20) {
+                    Text("Export Library")
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundStyle(FumeColors.textPrimary)
+
+                    Text("\(sources.count) source\(sources.count == 1 ? "" : "s") will be exported.")
+                        .font(.system(size: 14))
+                        .foregroundStyle(FumeColors.textSecondary)
+
+                    VStack(spacing: 10) {
+                        ForEach(ExportFormat.allCases) { format in
+                            ExportFormatOption(
+                                format: format,
+                                isSelected: selectedFormat == format
+                            ) {
+                                selectedFormat = format
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 16)
+
+                    if isExporting {
+                        ProgressView()
+                            .tint(FumeColors.accent)
+                        Text("Generating \(selectedFormat.rawValue)...")
+                            .font(.system(size: 13))
+                            .foregroundStyle(FumeColors.textSecondary)
+                    }
+
+                    Spacer()
+                }
+                .padding(.top, 24)
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                    .foregroundStyle(FumeColors.textSecondary)
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Export") {
+                        performExport()
+                    }
+                    .foregroundStyle(FumeColors.accent)
+                    .fontWeight(.semibold)
+                    .disabled(isExporting || sources.isEmpty)
+                }
+            }
+            .alert("Export Failed", isPresented: $showError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(error?.localizedDescription ?? "Unknown error")
+            }
+            .sheet(isPresented: $showShareSheet) {
+                if let result = exportResult {
+                    ShareSheet(items: [result.itemProvider])
+                }
+            }
+        }
+    }
+
+    private func performExport() {
+        guard !sources.isEmpty else { return }
+
+        isExporting = true
+
+        Task {
+            do {
+                let result = try await ExportService.shared.export(sources: sources, format: selectedFormat)
+                exportResult = result
+                isExporting = false
+                showShareSheet = true
+            } catch {
+                self.error = error
+                isExporting = false
+                showError = true
+            }
+        }
+    }
+}
+
+// MARK: - Export Format Option
+
+struct ExportFormatOption: View {
+    let format: ExportFormat
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 14) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(FumeColors.surfaceRaised)
+                        .frame(width: 44, height: 44)
+
+                    Image(systemName: format.icon)
+                        .font(.system(size: 20))
+                        .foregroundStyle(FumeColors.accent)
+                }
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(format.rawValue)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(FumeColors.textPrimary)
+
+                    Text(formatDescription)
+                        .font(.system(size: 12))
+                        .foregroundStyle(FumeColors.textSecondary)
+                }
+
+                Spacer()
+
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .foregroundStyle(isSelected ? FumeColors.accent : FumeColors.textSecondary)
+            }
+            .padding(14)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(isSelected ? FumeColors.accent.opacity(0.08) : FumeColors.glassOverlay)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(isSelected ? FumeColors.accent.opacity(0.3) : FumeColors.border, lineWidth: 0.5)
+            )
+        }
+    }
+
+    private var formatDescription: String {
+        switch format {
+        case .obsidian: return "Markdown files with frontmatter for Obsidian"
+        case .pdf: return "Printable PDF document"
+        case .json: return "Raw data export for backup"
+        }
+    }
+}
+
+// MARK: - Share Sheet
+
+struct ShareSheet: UIViewControllerRepresentable {
+    let items: [Any]
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+}
+
+// MARK: - LibraryView Share Export Extension
+
+extension LibraryView {
+    func shareExport(_ result: ExportResult) {
+        // Handled via sheet presentation
     }
 }

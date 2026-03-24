@@ -12,6 +12,12 @@ struct SourceDetailView: View {
     @State private var isLoadingRelated = false
     @State private var showTagEditor = false
     @State private var localAllTags: [Tag] = []
+    @State private var showExportSheet = false
+    @State private var showShareSheet = false
+    @State private var isExporting = false
+    @State private var exportResult: ExportResult?
+    @State private var exportError: Error?
+    @State private var showExportError = false
 
     var effectiveTags: [Tag] {
         allTags.isEmpty ? localAllTags : allTags
@@ -69,6 +75,13 @@ struct SourceDetailView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 16) {
                         Button {
+                            showExportSheet = true
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundStyle(FumeColors.accent)
+                        }
+
+                        Button {
                             showTagEditor = true
                         } label: {
                             Image(systemName: "tag")
@@ -117,6 +130,9 @@ struct SourceDetailView: View {
                         }
                     }
                 )
+            }
+            .sheet(isPresented: $showExportSheet) {
+                SourceExportSheet(source: source)
             }
         }
     }
@@ -631,6 +647,108 @@ struct TagEditorSheet: View {
                     .foregroundStyle(FumeColors.accent)
                     .fontWeight(.semibold)
                 }
+            }
+        }
+    }
+}
+
+// MARK: - Source Export Sheet
+
+struct SourceExportSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    let source: Source
+
+    @State private var selectedFormat: ExportFormat = .obsidian
+    @State private var isExporting = false
+    @State private var showShareSheet = false
+    @State private var exportResult: ExportResult?
+    @State private var error: Error?
+    @State private var showError = false
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                FumeColors.background
+                    .ignoresSafeArea()
+
+                VStack(spacing: 20) {
+                    Text("Export Source")
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundStyle(FumeColors.textPrimary)
+
+                    Text("Export \"\(source.title.prefix(40))\(source.title.count > 40 ? "..." : "")\"")
+                        .font(.system(size: 14))
+                        .foregroundStyle(FumeColors.textSecondary)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+
+                    VStack(spacing: 10) {
+                        ForEach(ExportFormat.allCases) { format in
+                            ExportFormatOption(
+                                format: format,
+                                isSelected: selectedFormat == format
+                            ) {
+                                selectedFormat = format
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 16)
+
+                    if isExporting {
+                        ProgressView()
+                            .tint(FumeColors.accent)
+                        Text("Generating \(selectedFormat.rawValue)...")
+                            .font(.system(size: 13))
+                            .foregroundStyle(FumeColors.textSecondary)
+                    }
+
+                    Spacer()
+                }
+                .padding(.top, 24)
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                    .foregroundStyle(FumeColors.textSecondary)
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Export") {
+                        performExport()
+                    }
+                    .foregroundStyle(FumeColors.accent)
+                    .fontWeight(.semibold)
+                    .disabled(isExporting)
+                }
+            }
+            .alert("Export Failed", isPresented: $showError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(error?.localizedDescription ?? "Unknown error")
+            }
+            .sheet(isPresented: $showShareSheet) {
+                if let result = exportResult {
+                    ShareSheet(items: [result.itemProvider])
+                }
+            }
+        }
+    }
+
+    private func performExport() {
+        isExporting = true
+        Task {
+            do {
+                let result = try await ExportService.shared.exportSource(source, format: selectedFormat)
+                exportResult = result
+                isExporting = false
+                showShareSheet = true
+            } catch {
+                self.error = error
+                isExporting = false
+                showError = true
             }
         }
     }

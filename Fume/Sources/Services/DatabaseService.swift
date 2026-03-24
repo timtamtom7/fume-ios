@@ -211,6 +211,21 @@ actor DatabaseService {
         return tags
     }
 
+    func fetchTagByName(_ name: String) async throws -> Tag? {
+        guard let db = db else { return nil }
+
+        let query = tagsTable.filter(tagNameCol.lowercaseString == name.lowercased())
+        guard let row = try db.pluck(query) else { return nil }
+
+        guard let uuid = UUID(uuidString: row[tagIdCol]) else { return nil }
+        return Tag(
+            id: uuid,
+            name: row[tagNameCol],
+            colorHex: row[tagColorCol],
+            createdAt: Date(timeIntervalSince1970: row[tagCreatedAtCol])
+        )
+    }
+
     func insertTag(_ tag: Tag) async throws {
         guard let db = db else { return }
         let insert = tagsTable.insert(
@@ -280,18 +295,223 @@ actor DatabaseService {
         return Set(words.filter { $0.count > 3 && !stopWords.contains($0) })
     }
 
+    // MARK: - Advanced Query Parsing
+
+    struct ParsedQuery {
+        var freeText: String
+        var tagID: UUID?
+        var tagName: String?
+        var type: SourceType?
+        var dateRange: DateRange?
+    }
+
+    struct DateRange {
+        let start: Date?
+        let end: Date?
+        let month: String? // e.g., "March"
+
+        func contains(_ date: Date) -> Bool {
+            if let month = month {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MMMM"
+                let monthName = formatter.string(from: date)
+                if monthName.lowercased() == month.lowercased() {
+                    return true
+                }
+            }
+
+            if let start = start, let end = end {
+                return date >= start && date <= end
+            }
+
+            if let start = start {
+                return date >= start
+            }
+
+            if let end = end {
+                return date <= end
+            }
+
+            return true
+        }
+    }
+
+    private func parseAdvancedQuery(_ query: String) -> ParsedQuery {
+        var parsed = ParsedQuery(freeText: query, tagID: nil, tagName: nil, type: nil, dateRange: nil)
+
+        // Parse "tag:tagname" or "#tagname"
+        let tagPattern = try? NSRegularExpression(pattern: #"(?:tag|fromtag):(\w+)"#, options: .caseInsensitive)
+        if let match = tagPattern?.firstMatch(in: query, range: NSRange(query.startIndex..., in: query)) {
+            if let range = Range(match.range(at: 1), in: query) {
+                parsed.tagName = String(query[range])
+            }
+            if let fullRange = Range(match.range, in: query) {
+                parsed.freeText = query.replacingCharacters(in: fullRange, with: "").trimmingCharacters(in: .whitespaces)
+            }
+        }
+
+        // Parse "type:notetype"
+        let typePattern = try? NSRegularExpression(pattern: #"type:(\w+)"#, options: .caseInsensitive)
+        if let match = typePattern?.firstMatch(in: parsed.freeText, range: NSRange(parsed.freeText.startIndex..., in: parsed.freeText)) {
+            if let range = Range(match.range(at: 1), in: parsed.freeText) {
+                let typeStr = String(parsed.freeText[range]).lowercased()
+                parsed.type = SourceType.allCases.first { $0.rawValue == typeStr || $0.label.lowercased() == typeStr }
+            }
+            if let fullRange = Range(match.range, in: parsed.freeText) {
+                parsed.freeText = parsed.freeText.replacingCharacters(in: fullRange, with: "").trimmingCharacters(in: .whitespaces)
+            }
+        }
+
+        // Parse "from:Month" or "from:Month Year"
+        let monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+        let shortMonths = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+
+        let fromPattern = try? NSRegularExpression(pattern: #"from:(\w+(?:\s+\d{4})?)"#, options: .caseInsensitive)
+        if let match = fromPattern?.firstMatch(in: parsed.freeText, range: NSRange(parsed.freeText.startIndex..., in: parsed.freeText)) {
+            if let range = Range(match.range(at: 1), in: parsed.freeText) {
+                let dateStr = String(parsed.freeText[range]).lowercased()
+
+                // Try to parse as month
+                var monthName: String?
+                if monthNames.contains(dateStr) {
+                    monthName = monthNames[monthNames.firstIndex(of: dateStr)!]
+                } else if shortMonths.contains(dateStr) {
+                    monthName = monthNames[shortMonths.firstIndex(of: dateStr)!]
+                }
+
+                // Try to parse "Month YYYY" or "Month YY"
+                let monthYearPattern = try? NSRegularExpression(pattern: #"^(\w+)\s+(\d{2,4})$"#, options: .caseInsensitive)
+                if let mMatch = monthYearPattern?.firstMatch(in: dateStr, range: NSRange(dateStr.startIndex..., in: dateStr)) {
+                    if let mRange = Range(mMatch.range(at: 1), in: dateStr) {
+                        let mStr = String(dateStr[mRange]).lowercased()
+                        if monthNames.contains(mStr) {
+                            monthName = monthNames[monthNames.firstIndex(of: mStr)!]
+                        } else if shortMonths.contains(mStr) {
+                            monthName = monthNames[shortMonths.firstIndex(of: mStr)!]
+                        }
+                    }
+                    if let yRange = Range(mMatch.range(at: 2), in: dateStr) {
+                        let yearStr = String(dateStr[yRange])
+                        let year = yearStr.count == 2 ? "20" + yearStr : yearStr
+                        if let month = monthName, let monthIndex = monthNames.firstIndex(of: month) {
+                            let calendar = Calendar.current
+                            var components = DateComponents()
+                            components.year = Int(year)
+                            components.month = monthIndex + 1
+                            components.day = 1
+                            let start = calendar.date(from: components)
+                            let end = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: start ?? Date())
+                            parsed.dateRange = DateRange(start: start, end: end, month: nil)
+                        }
+                    }
+                } else if let month = monthName {
+                    parsed.dateRange = DateRange(start: nil, end: nil, month: month.capitalized)
+                }
+            }
+            if let fullRange = Range(match.range, in: parsed.freeText) {
+                parsed.freeText = parsed.freeText.replacingCharacters(in: fullRange, with: "").trimmingCharacters(in: .whitespaces)
+            }
+        }
+
+        // Parse "to:Month Year" (end date)
+        let toPattern = try? NSRegularExpression(pattern: #"to:(\w+(?:\s+\d{4})?)"#, options: .caseInsensitive)
+        if let match = toPattern?.firstMatch(in: parsed.freeText, range: NSRange(parsed.freeText.startIndex..., in: parsed.freeText)) {
+            if let range = Range(match.range(at: 1), in: parsed.freeText) {
+                let dateStr = String(parsed.freeText[range]).lowercased()
+                var monthName: String?
+                if monthNames.contains(dateStr) {
+                    monthName = monthNames[monthNames.firstIndex(of: dateStr)!]
+                } else if shortMonths.contains(dateStr) {
+                    monthName = monthNames[shortMonths.firstIndex(of: dateStr)!]
+                }
+
+                let monthYearPattern = try? NSRegularExpression(pattern: #"^(\w+)\s+(\d{2,4})$"#, options: .caseInsensitive)
+                if let mMatch = monthYearPattern?.firstMatch(in: dateStr, range: NSRange(dateStr.startIndex..., in: dateStr)) {
+                    if let mRange = Range(mMatch.range(at: 1), in: dateStr) {
+                        let mStr = String(dateStr[mRange]).lowercased()
+                        if monthNames.contains(mStr) {
+                            monthName = monthNames[monthNames.firstIndex(of: mStr)!]
+                        } else if shortMonths.contains(mStr) {
+                            monthName = monthNames[shortMonths.firstIndex(of: mStr)!]
+                        }
+                    }
+                    if let yRange = Range(mMatch.range(at: 2), in: dateStr) {
+                        let yearStr = String(dateStr[yRange])
+                        let year = yearStr.count == 2 ? "20" + yearStr : yearStr
+                        if let month = monthName, let monthIndex = monthNames.firstIndex(of: month) {
+                            let calendar = Calendar.current
+                            var components = DateComponents()
+                            components.year = Int(year)
+                            components.month = monthIndex + 1
+                            components.day = 1
+                            let start = calendar.date(from: components)
+                            let end = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: start ?? Date())
+                            if var existing = parsed.dateRange {
+                                existing = DateRange(start: existing.start, end: end, month: nil)
+                                parsed.dateRange = existing
+                            } else {
+                                parsed.dateRange = DateRange(start: nil, end: end, month: nil)
+                            }
+                        }
+                    }
+                }
+            }
+            if let fullRange = Range(match.range, in: parsed.freeText) {
+                parsed.freeText = parsed.freeText.replacingCharacters(in: fullRange, with: "").trimmingCharacters(in: .whitespaces)
+            }
+        }
+
+        // Clean up remaining "about X" → just use X
+        if parsed.freeText.lowercased().hasPrefix("about ") {
+            parsed.freeText = String(parsed.freeText.dropFirst(6)).trimmingCharacters(in: .whitespaces)
+        }
+
+        // Trim extra whitespace
+        parsed.freeText = parsed.freeText
+            .components(separatedBy: .whitespaces)
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
+            .trimmingCharacters(in: .whitespaces)
+
+        return parsed
+    }
+
     func searchSources(query: String) async throws -> [SearchResult] {
+        var parsedQuery = parseAdvancedQuery(query)
+
+        // Resolve tag name to tag ID if present
+        if let tagName = parsedQuery.tagName {
+            if let tag = try await fetchTagByName(tagName) {
+                parsedQuery.tagID = tag.id
+            }
+        }
+
         let allSources = try await fetchAllSources()
-        let lowercasedQuery = query.lowercased()
-        let queryKeywords = extractKeywords(from: query)
+        let queryKeywords = extractKeywords(from: parsedQuery.freeText)
 
         var results: [SearchResult] = []
 
         for source in allSources {
-            let titleMatch = source.title.lowercased().contains(lowercasedQuery)
-            let contentMatch = source.content.lowercased().contains(lowercasedQuery)
+            // Apply tag filter
+            if let filterTagID = parsedQuery.tagID {
+                guard source.tagIDs.contains(filterTagID) else { continue }
+            }
 
-            guard titleMatch || contentMatch else { continue }
+            // Apply type filter
+            if let filterType = parsedQuery.type {
+                guard source.type == filterType else { continue }
+            }
+
+            // Apply date filter
+            if let dateRange = parsedQuery.dateRange {
+                guard dateRange.contains(source.createdAt) else { continue }
+            }
+
+            let lowercasedFreeText = parsedQuery.freeText.lowercased()
+            let titleMatch = source.title.lowercased().contains(lowercasedFreeText)
+            let contentMatch = source.content.lowercased().contains(lowercasedFreeText)
+
+            guard titleMatch || contentMatch || !parsedQuery.freeText.isEmpty else { continue }
 
             let contentKeywords = extractKeywords(from: source.content)
             let keywordOverlap = queryKeywords.filter { contentKeywords.contains($0) }
@@ -303,7 +523,7 @@ actor DatabaseService {
             score += keywordScore * 0.2
 
             // Find the matching chunk
-            let chunk = findMatchingChunk(in: source.content, query: query)
+            let chunk = findMatchingChunk(in: source.content, query: parsedQuery.freeText)
 
             results.append(SearchResult(id: source.id, source: source, score: score, chunk: chunk))
         }

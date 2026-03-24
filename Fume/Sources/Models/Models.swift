@@ -29,6 +29,57 @@ enum SourceType: String, Codable, CaseIterable {
     }
 }
 
+// MARK: - Export Format
+enum ExportFormat: String, CaseIterable, Identifiable {
+    case obsidian = "Obsidian (Markdown)"
+    case pdf = "PDF Document"
+    case json = "JSON"
+
+    var id: String { rawValue }
+
+    var icon: String {
+        switch self {
+        case .obsidian: return "folder.fill"
+        case .pdf: return "doc.richtext"
+        case .json: return "curlybraces"
+        }
+    }
+
+    var fileExtension: String {
+        switch self {
+        case .obsidian: return "md"
+        case .pdf: return "pdf"
+        case .json: return "json"
+        }
+    }
+
+    var contentType: String {
+        switch self {
+        case .obsidian: return "text/markdown"
+        case .pdf: return "application/pdf"
+        case .json: return "application/json"
+        }
+    }
+}
+
+// MARK: - Export Result
+struct ExportResult: Identifiable {
+    let id: UUID = UUID()
+    let name: String
+    let data: Data
+    let format: ExportFormat
+
+    var itemProvider: NSItemProvider {
+        let typeID: String
+        switch format {
+        case .obsidian: typeID = "public.plain-text"
+        case .pdf: typeID = "com.adobe.pdf"
+        case .json: typeID = "public.json"
+        }
+        return NSItemProvider(item: data as NSData, typeIdentifier: typeID)
+    }
+}
+
 // MARK: - Tag
 struct Tag: Identifiable, Codable, Equatable, Hashable {
     let id: UUID

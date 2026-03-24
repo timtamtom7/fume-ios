@@ -18,6 +18,7 @@
 		4809FAF79C96A88A7574AC85 /* FileImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91113E75831605DE97026F /* FileImportService.swift */; };
 		49C60C387C99AB2EF2504338 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = D4265F11548E8CD216453E5F /* SQLite */; };
 		5E429466ED639ED23F7CCD0C /* SourceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58664ACE4BF6E9E7387B6737 /* SourceDetailView.swift */; };
+		6C2A042C3DF87BAEE00DF4AF /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */; };
 		82E3FB5C9EFA0AA7430ABE38 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */; };
 		8C03A0B7BE7EDC4D4F7AE809 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86E3DDF41D2F33EFB1E804 /* Models.swift */; };
 		945853A048CC303D24093F12 /* FumeGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E385D46E09F092CBDE07EC74 /* FumeGraphics.swift */; };
@@ -51,6 +52,7 @@
 		58664ACE4BF6E9E7387B6737 /* SourceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDetailView.swift; sourceTree = "<group>"; };
 		68A000A9143B0D3E9DD09E10 /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		6F279C7648779893FB8CEE2E /* RealContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealContent.swift; sourceTree = "<group>"; };
+		6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		7C67A9128C4F4044D4DE0319 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		7D86E3DDF41D2F33EFB1E804 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		8D2A2B837E5EB585634FD596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */,
 				BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */,
 				45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */,
+				6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */,
 				4B91113E75831605DE97026F /* FileImportService.swift */,
 				C8A67A4E4D841534DF8DEFAB /* SpeechService.swift */,
 				CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */,
@@ -282,6 +285,7 @@
 				25120B71D21FA4FF2623278E /* DatabaseService.swift in Sources */,
 				09E4FEFAD3FB336B56E75817 /* EmbeddingService.swift in Sources */,
 				A30402C0BEEC1FDECBC840DD /* ErrorStateViews.swift in Sources */,
+				6C2A042C3DF87BAEE00DF4AF /* ExportService.swift in Sources */,
 				4809FAF79C96A88A7574AC85 /* FileImportService.swift in Sources */,
 				312766EAA5B39DD3F117C967 /* FumeApp.swift in Sources */,
 				945853A048CC303D24093F12 /* FumeGraphics.swift in Sources */,

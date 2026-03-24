@@ -10,6 +10,8 @@ enum FumeError: Error, Identifiable, Equatable {
     case networkError
     case importFailed
     case noSearchResults
+    case noRelatedSources
+    case exportFailed
 
     var id: String {
         switch self {
@@ -20,6 +22,8 @@ enum FumeError: Error, Identifiable, Equatable {
         case .networkError: return "network_error"
         case .importFailed: return "import_failed"
         case .noSearchResults: return "no_search_results"
+        case .noRelatedSources: return "no_related_sources"
+        case .exportFailed: return "export_failed"
         }
     }
 
@@ -32,6 +36,8 @@ enum FumeError: Error, Identifiable, Equatable {
         case .networkError: return "wifi.exclamationmark"
         case .importFailed: return "square.and.arrow.down.on.square.slash"
         case .noSearchResults: return "magnifyingglass"
+        case .noRelatedSources: return "link.badge.plus"
+        case .exportFailed: return "square.and.arrow.up.on.square"
         }
     }
 
@@ -44,6 +50,8 @@ enum FumeError: Error, Identifiable, Equatable {
         case .networkError: return "Connection issue"
         case .importFailed: return "Import failed"
         case .noSearchResults: return "No results found"
+        case .noRelatedSources: return "No related sources"
+        case .exportFailed: return "Export failed"
         }
     }
 
@@ -63,6 +71,10 @@ enum FumeError: Error, Identifiable, Equatable {
             return "The file couldn't be imported. Make sure it's a valid markdown or text file."
         case .noSearchResults:
             return "No sources matched your search. Try different keywords or add more content."
+        case .noRelatedSources:
+            return "No related sources were found. Add more content to discover connections."
+        case .exportFailed:
+            return "The export couldn't be generated. Try a different format."
         }
     }
 
@@ -75,6 +87,8 @@ enum FumeError: Error, Identifiable, Equatable {
         case .networkError: return "Check connection"
         case .importFailed: return "Choose different file"
         case .noSearchResults: return "Clear search"
+        case .noRelatedSources: return nil
+        case .exportFailed: return "Try again"
         }
     }
 }
