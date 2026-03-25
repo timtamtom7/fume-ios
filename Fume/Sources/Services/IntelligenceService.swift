@@ -15,6 +15,13 @@ actor IntelligenceService {
         let questionsRaised: [String]
         let keyFacts: [KeyFact]
         let sentiment: String
+        // R7: Extended AI Analysis
+        var topic: String?
+        var readingDifficulty: String?
+        var freshnessWarning: String?
+        var relatedTopics: [String]
+        var keyTakeaways: [String]
+        var analyzedAt: Date
     }
 
     struct KeyFact: Identifiable {
@@ -54,12 +61,25 @@ actor IntelligenceService {
         // Sentiment (simple keyword-based)
         let sentiment = analyzeSentiment(content)
 
+        // R7: Extended AI Analysis
+        let topic = classifyTopic(content)
+        let readingDifficulty = assessReadingDifficulty(content)
+        let freshnessWarning = assessFreshness(content, sourceDate: source.createdAt)
+        let relatedTopics = findRelatedTopics(content)
+        let keyTakeaways = extractKeyTakeaways(from: content)
+
         return AnalysisResult(
             summary: summary,
             actionItems: actionItems,
             questionsRaised: questions,
             keyFacts: keyFacts,
-            sentiment: sentiment
+            sentiment: sentiment,
+            topic: topic,
+            readingDifficulty: readingDifficulty,
+            freshnessWarning: freshnessWarning,
+            relatedTopics: relatedTopics,
+            keyTakeaways: keyTakeaways,
+            analyzedAt: Date()
         )
     }
 
@@ -681,6 +701,94 @@ actor IntelligenceService {
         let topWords = Set(sorted.prefix(topN).map { $0.key })
 
         return topWords
+    }
+
+    // MARK: - R7: Extended AI Analysis
+
+    private func classifyTopic(_ content: String) -> String? {
+        let lowercased = content.lowercased()
+        let topicKeywords: [String: [String]] = [
+            "Technology": ["software", "hardware", "computer", "ai", "machine learning", "app", "code", "programming", "developer", "api", "cloud", "data", "algorithm"],
+            "Science": ["research", "study", "experiment", "scientist", "hypothesis", "discovery", "physics", "biology", "chemistry"],
+            "Business": ["revenue", "company", "market", "startup", "investment", "founding", "ceo", "growth", "strategy", "customer", "sales", "product"],
+            "Health": ["health", "medical", "doctor", "treatment", "patient", "disease", "therapy", "wellness", "exercise", "nutrition"],
+            "Politics": ["government", "policy", "election", "vote", "congress", "senate", "law", "regulation"],
+            "Entertainment": ["movie", "film", "music", "game", "show", "series", "actor", "director", "streaming"],
+            "Sports": ["team", "player", "game", "match", "championship", "league", "score", "coach"],
+            "Finance": ["stock", "market", "investment", "trading", "finance", "banking", "interest", "inflation", "economy"],
+            "Education": ["school", "university", "student", "teacher", "course", "learning", "education", "degree"],
+            "Lifestyle": ["travel", "food", "fashion", "recipe", "restaurant", "vacation", "hobby", "fitness"]
+        ]
+        var bestTopic: String?
+        var bestScore = 0
+        for (topic, keywords) in topicKeywords {
+            let score = keywords.filter { lowercased.contains($0) }.count
+            if score > bestScore { bestScore = score; bestTopic = topic }
+        }
+        return bestScore > 0 ? bestTopic : nil
+    }
+
+    private func assessReadingDifficulty(_ content: String) -> String? {
+        let words = content.lowercased().components(separatedBy: .whitespacesAndNewlines)
+        guard words.count > 50 else { return nil }
+        let pattern = "\\b[a-z]{8,}\\b"
+        guard let regex = try? NSRegularExpression(pattern: pattern) else { return nil }
+        let range = NSRange(content.startIndex..., in: content)
+        let matches = regex.matches(in: content, range: range)
+        let ratio = Double(matches.count) / Double(words.count)
+        if ratio > 0.15 { return "Hard" }
+        if ratio > 0.08 { return "Medium" }
+        return "Easy"
+    }
+
+    private func assessFreshness(_ content: String, sourceDate: Date?) -> String? {
+        guard let date = sourceDate else { return "Unknown publication date — verify information freshness" }
+        let days = Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
+        if days > 730 { return "This content is over 2 years old and may contain outdated information." }
+        if days > 365 { return "This content is over 1 year old. Check for more recent sources." }
+        if days > 180 { return "This content is 6+ months old. Verify if the information is still current." }
+        return nil
+    }
+
+    private func findRelatedTopics(_ content: String) -> [String] {
+        let lowercased = content.lowercased()
+        let signatures: [String: [String]] = [
+            "AI & Machine Learning": ["artificial intelligence", "machine learning", "neural network", "deep learning", "llm", "gpt"],
+            "Climate Change": ["climate", "carbon", "emissions", "global warming", "sustainability", "renewable energy"],
+            "Cryptocurrency": ["bitcoin", "ethereum", "blockchain", "crypto", "defi", "nft"],
+            "Space": ["spacex", "nasa", "rocket", "satellite", "mars", "moon", "astronaut"],
+            "Privacy": ["privacy", "surveillance", "gdpr", "data collection", "encryption"]
+        ]
+        var related: [String] = []
+        for (topic, keywords) in signatures {
+            if keywords.contains(where: { lowercased.contains($0) }) { related.append(topic) }
+        }
+        return Array(related.prefix(3))
+    }
+
+    private func extractKeyTakeaways(from content: String) -> [String] {
+        let sentences = splitIntoSentences(content)
+        guard sentences.count >= 2 else { return [] }
+        var takeaways: [String] = []
+        if let first = sentences.first {
+            takeaways.append(first.trimmingCharacters(in: .whitespacesAndNewlines))
+        }
+        let importantWords = extractImportantWords(from: content)
+        let scored = sentences.dropFirst().map { (s: $0, score: scoreTakeawaySentence($0, importantWords: importantWords)) }
+            .sorted { $0.score > $1.score }
+            .prefix(2)
+        for item in scored {
+            let cleaned = item.s.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !takeaways.contains(cleaned) { takeaways.append(cleaned) }
+        }
+        return Array(takeaways.prefix(3))
+    }
+
+    private func scoreTakeawaySentence(_ sentence: String, importantWords: Set<String>) -> Double {
+        let words = sentence.lowercased().components(separatedBy: .whitespacesAndNewlines)
+        var score = 0.0
+        for word in words where importantWords.contains(word) { score += 1.0 }
+        return score / max(1, Double(words.count))
     }
 }
 
