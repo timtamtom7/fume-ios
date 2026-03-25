@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09E4FEFAD3FB336B56E75817 /* EmbeddingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */; };
+		0A08A8BA7F4ACCB3FE4C1DBC /* NoteEnhancementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55674E2733543D088675A97F /* NoteEnhancementService.swift */; };
 		12CFAA8B24642D9309EAA80E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DE3D822B24E1B9C9CC23D3 /* CloudKit.framework */; };
 		13B4E5FC044365615ED2A215 /* AppStoreMetadata.md in Resources */ = {isa = PBXBuildFile; fileRef = 22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */; };
 		1BC43AB1140F176667FC60D3 /* EmbeddingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */; };
@@ -53,6 +54,7 @@
 		B1E6B7B4C4C4BF42CB1D2898 /* FumeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4798541EA4B5BFFEE0CA3D /* FumeTheme.swift */; };
 		B7445C156E5C5AA514BB2256 /* FileImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91113E75831605DE97026F /* FileImportService.swift */; };
 		B7A0A8411AEB3255A6612CE4 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533079145153552F9C93F98 /* LibraryView.swift */; };
+		BD3836120ACE18D4252FF656 /* NoteEnhancementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55674E2733543D088675A97F /* NoteEnhancementService.swift */; };
 		BFD0B2FC716B7BC382862C2E /* IntelligenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */; };
 		C041839171CFF27173EEC9F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041C450BC8BA6BE0F11C93CB /* Info.plist */; };
 		C127713FF4E27374330B451D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DE3D822B24E1B9C9CC23D3 /* CloudKit.framework */; };
@@ -62,12 +64,14 @@
 		CF1789FB9F4C2F1019CC98EB /* AutomationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BCA0E725C31F7A9460D90B /* AutomationService.swift */; };
 		DC9A469D593CE70F78A9AFB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884406290CCC42A705E3D21 /* ContentView.swift */; };
 		E0AB04DB37CE1B01851095CE /* RealContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F279C7648779893FB8CEE2E /* RealContent.swift */; };
+		E3AB867B2C74619B2C9FD6A7 /* ObsidianSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B6A85B0DE24E828EC41D /* ObsidianSyncService.swift */; };
 		E4567CEB85AC12B89611075A /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A000A9143B0D3E9DD09E10 /* PricingView.swift */; };
 		F1675F944D95230E7EDD6796 /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588D907C35BEF8B596225CC /* VisionService.swift */; };
 		F293A839047218FECD5F54B1 /* URLFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */; };
 		F6B8AC8063E44E82F464527B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D4EE04F2434A18EB439375 /* OnboardingView.swift */; };
 		F7BC3BD8E2FA49C676986E49 /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCF5477C27CBAEAA1DBD452 /* SyncService.swift */; };
 		F7C66C9E23606C4A49817D98 /* FumeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7875135FF1895D40DDAE141 /* FumeWidget.swift */; };
+		FAF542B0210E41AC472669EC /* ObsidianSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B6A85B0DE24E828EC41D /* ObsidianSyncService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +79,7 @@
 		0588D907C35BEF8B596225CC /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
 		08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateViews.swift; sourceTree = "<group>"; };
 		22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AppStoreMetadata.md; sourceTree = "<group>"; };
+		38D5B6A85B0DE24E828EC41D /* ObsidianSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObsidianSyncService.swift; sourceTree = "<group>"; };
 		397EF9196610084E528D23E2 /* AIAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAnalysisView.swift; sourceTree = "<group>"; };
 		3AACBDDAD1DBEF04FE2AE19A /* FumeMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FumeMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddingService.swift; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 		534561019EDDC30A1997B809 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		5439EE72C610D04A5A969B6B /* AddContentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentSheet.swift; sourceTree = "<group>"; };
 		554DD9CFFD9B9044761D79A1 /* FumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeApp.swift; sourceTree = "<group>"; };
+		55674E2733543D088675A97F /* NoteEnhancementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEnhancementService.swift; sourceTree = "<group>"; };
 		565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		56D4EE04F2434A18EB439375 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		58664ACE4BF6E9E7387B6737 /* SourceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDetailView.swift; sourceTree = "<group>"; };
@@ -232,6 +238,8 @@
 				4B91113E75831605DE97026F /* FileImportService.swift */,
 				BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */,
 				534561019EDDC30A1997B809 /* NetworkMonitor.swift */,
+				55674E2733543D088675A97F /* NoteEnhancementService.swift */,
+				38D5B6A85B0DE24E828EC41D /* ObsidianSyncService.swift */,
 				C8A67A4E4D841534DF8DEFAB /* SpeechService.swift */,
 				ADCF5477C27CBAEAA1DBD452 /* SyncService.swift */,
 				CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */,
@@ -449,6 +457,8 @@
 				90077EB68CBE4201119BA1C1 /* MacLibraryView.swift in Sources */,
 				730D34B99BB5DD4A8BC813D6 /* Models.swift in Sources */,
 				57896B27A02A8153F6F767E1 /* NetworkMonitor.swift in Sources */,
+				0A08A8BA7F4ACCB3FE4C1DBC /* NoteEnhancementService.swift in Sources */,
+				FAF542B0210E41AC472669EC /* ObsidianSyncService.swift in Sources */,
 				4D23424358EDD4746C4AA2DD /* OnboardingStorage.swift in Sources */,
 				5BCE5EDE1053C38380AC0158 /* RealContent.swift in Sources */,
 				F7BC3BD8E2FA49C676986E49 /* SyncService.swift in Sources */,
@@ -481,6 +491,8 @@
 				22F5A8351B0C4B9243703708 /* LibraryViewModel.swift in Sources */,
 				8C03A0B7BE7EDC4D4F7AE809 /* Models.swift in Sources */,
 				9FC161ECA1A965A4EE71FA34 /* NetworkMonitor.swift in Sources */,
+				BD3836120ACE18D4252FF656 /* NoteEnhancementService.swift in Sources */,
+				E3AB867B2C74619B2C9FD6A7 /* ObsidianSyncService.swift in Sources */,
 				9AEEF39791A25DF3AA63989F /* OnboardingStorage.swift in Sources */,
 				F6B8AC8063E44E82F464527B /* OnboardingView.swift in Sources */,
 				E4567CEB85AC12B89611075A /* PricingView.swift in Sources */,
