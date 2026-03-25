@@ -1,0 +1,339 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Fume-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Fume-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Fume-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Fume-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Fume-primary.swiftdeps"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/App/AppState.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AppState.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AppState.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AppState.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AppState.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AppState.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AppState.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AppState.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AppState~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/App/FumeApp.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Models/Models.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Models.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Models.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Models.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Models.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Models.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Models.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Models.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/Models~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/AIQueryService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIQueryService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIQueryService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIQueryService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIQueryService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIQueryService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIQueryService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIQueryService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIQueryService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/AutomationService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AutomationService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AutomationService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AutomationService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AutomationService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AutomationService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AutomationService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AutomationService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AutomationService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/DatabaseService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/DatabaseService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/DatabaseService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/DatabaseService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/DatabaseService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/DatabaseService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/DatabaseService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/DatabaseService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/DatabaseService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/EmbeddingService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/EmbeddingService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/EmbeddingService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/EmbeddingService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/EmbeddingService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/EmbeddingService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/EmbeddingService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/EmbeddingService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/EmbeddingService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/ExportService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ExportService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ExportService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ExportService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ExportService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ExportService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ExportService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ExportService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ExportService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/FileImportService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FileImportService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FileImportService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FileImportService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FileImportService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FileImportService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FileImportService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FileImportService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FileImportService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/IntelligenceService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/IntelligenceService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/IntelligenceService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/IntelligenceService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/IntelligenceService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/IntelligenceService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/IntelligenceService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/IntelligenceService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/IntelligenceService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/NetworkMonitor.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/NetworkMonitor.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/NetworkMonitor.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/NetworkMonitor.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/NetworkMonitor.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/NetworkMonitor.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/NetworkMonitor.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/NetworkMonitor.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/NetworkMonitor~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/SpeechService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/SyncService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/URLFetchService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/URLFetchService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/URLFetchService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/URLFetchService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/URLFetchService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/URLFetchService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/URLFetchService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/URLFetchService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/URLFetchService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/VisionService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/VisionService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/VisionService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/VisionService.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/VisionService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/VisionService.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/VisionService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/VisionService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/VisionService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Utilities/FumeTheme.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeTheme.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeTheme.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeTheme.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeTheme.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeTheme.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeTheme.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeTheme.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeTheme~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Utilities/OnboardingStorage.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingStorage.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingStorage.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingStorage.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingStorage.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingStorage.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingStorage.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingStorage.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingStorage~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Utilities/RealContent.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/ViewModels/AddContentViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentViewModel.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentViewModel.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentViewModel.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentViewModel.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentViewModel~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/ViewModels/HomeViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeViewModel.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeViewModel.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeViewModel.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeViewModel.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeViewModel~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/ViewModels/LibraryViewModel.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryViewModel.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryViewModel.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryViewModel.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryViewModel.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryViewModel.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryViewModel.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryViewModel~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/AIAnalysisView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIAnalysisView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIAnalysisView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIAnalysisView.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIAnalysisView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIAnalysisView.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIAnalysisView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIAnalysisView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AIAnalysisView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/AddContentSheet.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentSheet.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentSheet.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentSheet.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentSheet.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentSheet.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentSheet.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentSheet.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/AddContentSheet~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/ContentView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/ErrorStateViews.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ErrorStateViews.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ErrorStateViews.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ErrorStateViews.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ErrorStateViews.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ErrorStateViews.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ErrorStateViews.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ErrorStateViews.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/ErrorStateViews~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/FumeGraphics.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/HomeView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeView.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeView.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/HomeView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/LibraryView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryView.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryView.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/LibraryView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/OnboardingView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingView.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingView.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/OnboardingView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/PricingView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/SourceDetailView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/SyncStatusView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
