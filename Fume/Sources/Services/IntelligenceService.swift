@@ -513,7 +513,7 @@ actor IntelligenceService {
         let calendar = Calendar.current
         let now = Date()
         let weekEnd = calendar.startOfDay(for: now)
-        let weekStart = calendar.date(byAdding: .day, value: -7, to: weekEnd)!
+        let weekStart = calendar.date(byAdding: .day, value: -7, to: weekEnd) ?? calendar.date(byAdding: .day, value: -7, to: now) ?? now
 
         // Filter sources from this week
         let weeklySources = sources.filter { $0.createdAt >= weekStart && $0.createdAt <= weekEnd }
@@ -629,7 +629,7 @@ actor IntelligenceService {
 
     func detectChanges(for sources: [Source], since days: Int = 7) async -> [ChangeDiff] {
         let calendar = Calendar.current
-        let cutoffDate = calendar.date(byAdding: .day, value: -days, to: Date())!
+        let cutoffDate = calendar.date(byAdding: .day, value: -days, to: Date()) ?? Date()
 
         // This would compare current content with previously stored versions
         // For now, we detect changes by looking at recently updated sources

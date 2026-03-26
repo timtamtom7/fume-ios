@@ -156,7 +156,9 @@ actor AutomationService {
     func generateDailyDigest(sources: [Source]) async -> Digest? {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
-        let yesterday = calendar.date(byAdding: .day, value: -1, to: today)!
+        guard let yesterday = calendar.date(byAdding: .day, value: -1, to: today) else {
+            return nil
+        }
 
         // Sources added today
         let todaySources = sources.filter { $0.createdAt >= today }
@@ -197,7 +199,9 @@ actor AutomationService {
     func generateWeeklyDigest(sources: [Source]) async -> Digest? {
         let calendar = Calendar.current
         let now = Date()
-        let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: now))!
+        guard let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: now)) else {
+            return nil
+        }
         let weekStartDay = calendar.startOfDay(for: weekStart)
 
         let weeklySources = sources.filter { $0.createdAt >= weekStartDay }
@@ -212,7 +216,7 @@ actor AutomationService {
         let topType = typeCounts.max { $0.value < $1.value }.map { $0.key.label }
 
         // Week-over-week comparison
-        let lastWeekStart = calendar.date(byAdding: .day, value: -7, to: weekStartDay)!
+        let lastWeekStart = calendar.date(byAdding: .day, value: -7, to: weekStartDay) ?? calendar.date(byAdding: .day, value: -7, to: Date()) ?? Date()
         let lastWeekSources = sources.filter {
             $0.createdAt >= lastWeekStart && $0.createdAt < weekStartDay
         }
@@ -255,9 +259,13 @@ actor AutomationService {
     func generateWeeklyReview(sources: [Source]) async -> WeeklyReview? {
         let calendar = Calendar.current
         let now = Date()
-        let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: now))!
+        guard let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: now)) else {
+            return nil
+        }
         let weekStartDay = calendar.startOfDay(for: weekStart)
-        let weekEnd = calendar.date(byAdding: .day, value: 6, to: weekStartDay)!
+        guard let weekEnd = calendar.date(byAdding: .day, value: 6, to: weekStartDay) else {
+            return nil
+        }
 
         let weeklySources = sources.filter { $0.createdAt >= weekStartDay && $0.createdAt <= weekEnd }
 
@@ -395,7 +403,9 @@ actor AutomationService {
 
         let calendar = Calendar.current
         let now = Date()
-        let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: now))!
+        guard let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: now)) else {
+            return false
+        }
         let weekStartDay = calendar.startOfDay(for: weekStart)
 
         return lastDismissed >= weekStartDay

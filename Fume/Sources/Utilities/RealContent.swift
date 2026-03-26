@@ -4,6 +4,11 @@ import Foundation
 /// No generic placeholder copy — everything feels genuine.
 enum RealContent {
 
+    /// Helper to safely compute a past date. Returns Date() if calculation fails (should never happen with positive day offsets from Date()).
+    private static func daysAgo(_ days: Int) -> Date {
+        Calendar.current.date(byAdding: .day, value: -abs(days), to: Date()) ?? Date()
+    }
+
     // MARK: - Example Queries
 
     /// Things users would actually ask their second brain
@@ -38,7 +43,7 @@ enum RealContent {
 
             The key insight is that quantization matters a lot for on-device. A 4-bit quantized model at 2GB runs much faster than a 16-bit model at 8GB, even on Apple Silicon with its massive memory bandwidth. I should explore this more for the fume project.
             """,
-            createdAt: Calendar.current.date(byAdding: .day, value: -3, to: Date())!
+            createdAt: daysAgo(3)
         ),
         Source(
             type: .article,
@@ -55,7 +60,7 @@ enum RealContent {
             Saved this because the explanation of the chain rule in the context of neural networks is the clearest I've encountered.
             """,
             url: "https://colah.github.io/posts/2015-08-Backprop/",
-            createdAt: Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+            createdAt: daysAgo(7)
         ),
         Source(
             type: .note,
@@ -70,7 +75,7 @@ enum RealContent {
 
             The performance improvements are real too — parallel test execution by default. I should migrate fume's tests to the new framework.
             """,
-            createdAt: Calendar.current.date(byAdding: .day, value: -12, to: Date())!
+            createdAt: daysAgo(12)
         ),
         Source(
             type: .voiceMemo,
@@ -82,7 +87,7 @@ enum RealContent {
 
             Another idea: voice query input. Instead of typing, just ask your question out loud. The speech recognizer transcribes it, then feeds it to the query engine.
             """,
-            createdAt: Calendar.current.date(byAdding: .day, value: -2, to: Date())!
+            createdAt: daysAgo(2)
         ),
         Source(
             type: .note,
@@ -98,7 +103,7 @@ enum RealContent {
 
             The implication for fume: the more notes you add, the more valuable the system becomes (reinforcing loop). But only if the quality of connections keeps pace.
             """,
-            createdAt: Calendar.current.date(byAdding: .day, value: -20, to: Date())!
+            createdAt: daysAgo(20)
         ),
     ]
 
