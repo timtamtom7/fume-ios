@@ -115,7 +115,7 @@ actor DatabaseService {
                 Float(String($0))
             }
 
-            let tagIDs: [UUID] = (row[tagIDsCol] ?? "")
+            let tagIDs: [UUID] = row[tagIDsCol]
                 .split(separator: ",")
                 .compactMap { UUID(uuidString: String($0)) }
 
@@ -149,7 +149,7 @@ actor DatabaseService {
             Float(String($0))
         }
 
-        let tagIDs: [UUID] = (row[tagIDsCol] ?? "")
+        let tagIDs: [UUID] = row[tagIDsCol]
             .split(separator: ",")
             .compactMap { UUID(uuidString: String($0)) }
 
@@ -269,8 +269,6 @@ actor DatabaseService {
     }
 
     func findRelatedSources(for source: Source, topK: Int = 5) async throws -> [Source] {
-        guard let db = db else { return [] }
-
         let allSources = try await fetchAllSources()
         let keywords = extractKeywords(from: source.content + " " + source.title)
 
@@ -373,10 +371,10 @@ actor DatabaseService {
 
                 // Try to parse as month
                 var monthName: String?
-                if monthNames.contains(dateStr) {
-                    monthName = monthNames[monthNames.firstIndex(of: dateStr)!]
-                } else if shortMonths.contains(dateStr) {
-                    monthName = monthNames[shortMonths.firstIndex(of: dateStr)!]
+                if let idx = monthNames.firstIndex(of: dateStr) {
+                    monthName = monthNames[idx]
+                } else if let idx = shortMonths.firstIndex(of: dateStr) {
+                    monthName = monthNames[idx]
                 }
 
                 // Try to parse "Month YYYY" or "Month YY"
@@ -384,10 +382,10 @@ actor DatabaseService {
                 if let mMatch = monthYearPattern?.firstMatch(in: dateStr, range: NSRange(dateStr.startIndex..., in: dateStr)) {
                     if let mRange = Range(mMatch.range(at: 1), in: dateStr) {
                         let mStr = String(dateStr[mRange]).lowercased()
-                        if monthNames.contains(mStr) {
-                            monthName = monthNames[monthNames.firstIndex(of: mStr)!]
-                        } else if shortMonths.contains(mStr) {
-                            monthName = monthNames[shortMonths.firstIndex(of: mStr)!]
+                        if let idx = monthNames.firstIndex(of: mStr) {
+                            monthName = monthNames[idx]
+                        } else if let idx = shortMonths.firstIndex(of: mStr) {
+                            monthName = monthNames[idx]
                         }
                     }
                     if let yRange = Range(mMatch.range(at: 2), in: dateStr) {
@@ -419,20 +417,20 @@ actor DatabaseService {
             if let range = Range(match.range(at: 1), in: parsed.freeText) {
                 let dateStr = String(parsed.freeText[range]).lowercased()
                 var monthName: String?
-                if monthNames.contains(dateStr) {
-                    monthName = monthNames[monthNames.firstIndex(of: dateStr)!]
-                } else if shortMonths.contains(dateStr) {
-                    monthName = monthNames[shortMonths.firstIndex(of: dateStr)!]
+                if let idx = monthNames.firstIndex(of: dateStr) {
+                    monthName = monthNames[idx]
+                } else if let idx = shortMonths.firstIndex(of: dateStr) {
+                    monthName = monthNames[idx]
                 }
 
                 let monthYearPattern = try? NSRegularExpression(pattern: #"^(\w+)\s+(\d{2,4})$"#, options: .caseInsensitive)
                 if let mMatch = monthYearPattern?.firstMatch(in: dateStr, range: NSRange(dateStr.startIndex..., in: dateStr)) {
                     if let mRange = Range(mMatch.range(at: 1), in: dateStr) {
                         let mStr = String(dateStr[mRange]).lowercased()
-                        if monthNames.contains(mStr) {
-                            monthName = monthNames[monthNames.firstIndex(of: mStr)!]
-                        } else if shortMonths.contains(mStr) {
-                            monthName = monthNames[shortMonths.firstIndex(of: mStr)!]
+                        if let idx = monthNames.firstIndex(of: mStr) {
+                            monthName = monthNames[idx]
+                        } else if let idx = shortMonths.firstIndex(of: mStr) {
+                            monthName = monthNames[idx]
                         }
                     }
                     if let yRange = Range(mMatch.range(at: 2), in: dateStr) {

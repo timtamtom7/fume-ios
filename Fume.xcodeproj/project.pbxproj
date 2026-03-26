@@ -61,6 +61,7 @@
 		BD3836120ACE18D4252FF656 /* NoteEnhancementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55674E2733543D088675A97F /* NoteEnhancementService.swift */; };
 		BFD0B2FC716B7BC382862C2E /* IntelligenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */; };
 		C041839171CFF27173EEC9F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041C450BC8BA6BE0F11C93CB /* Info.plist */; };
+		BBBB1111222233334444555566677788 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AAAA1111222233334444555566677788 /* PrivacyInfo.xcprivacy */; };
 		C127713FF4E27374330B451D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DE3D822B24E1B9C9CC23D3 /* CloudKit.framework */; };
 		C2CCD172B22967C3E87AA742 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67A9128C4F4044D4DE0319 /* AppState.swift */; };
 		C38AACF5D323194FE6F2EB05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */; };
@@ -117,6 +118,7 @@
 		C7180E0CC1F16911B2671358 /* MacLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacLibraryView.swift; sourceTree = "<group>"; };
 		C8A67A4E4D841534DF8DEFAB /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		CAC14FF0E6B8061D02ED5EF1 /* Fume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fume.entitlements; sourceTree = "<group>"; };
+		AAAA1111222233334444555566677788 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xcprivacy; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFetchService.swift; sourceTree = "<group>"; };
 		D01091D7B2BA2958DBCF2FB4 /* FumeWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FumeWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4201DC25C852B2664DBE76 /* FumeMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeMacApp.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */,
 				8D2A2B837E5EB585634FD596 /* Assets.xcassets */,
 				CAC14FF0E6B8061D02ED5EF1 /* Fume.entitlements */,
+				AAAA1111222233334444555566677788 /* PrivacyInfo.xcprivacy */,
 				041C450BC8BA6BE0F11C93CB /* Info.plist */,
 			);
 			name = Resources;
@@ -431,6 +434,7 @@
 				25467E78CA3C92573E210004 /* AppStoreMetadata.md in Resources */,
 				AAED34899BDEC9A2BEBF63A1 /* Assets.xcassets in Resources */,
 				C041839171CFF27173EEC9F3 /* Info.plist in Resources */,
+				BBBB1111222233334444555566677788 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

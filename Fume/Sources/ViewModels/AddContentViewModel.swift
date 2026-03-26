@@ -125,7 +125,12 @@ final class AddContentViewModel: ObservableObject {
                 AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
             ]
 
-            audioRecorder = try AVAudioRecorder(url: recordingURL!, settings: settings)
+            guard let recordingURL = recordingURL else {
+                errorMessage = "Recording URL not set"
+                showError = true
+                return
+            }
+            audioRecorder = try AVAudioRecorder(url: recordingURL, settings: settings)
             audioRecorder?.record()
             isRecording = true
             recordingTranscript = ""

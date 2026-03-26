@@ -13,11 +13,11 @@ actor ExportService {
     func export(sources: [Source], format: ExportFormat) async throws -> ExportResult {
         switch format {
         case .obsidian:
-            return try await exportToObsidian(sources: sources)
+            return try exportToObsidian(sources: sources)
         case .pdf:
-            return try await exportToPDF(sources: sources)
+            return try exportToPDF(sources: sources)
         case .json:
-            return try await exportToJSON(sources: sources)
+            return try exportToJSON(sources: sources)
         }
     }
 
@@ -47,7 +47,6 @@ actor ExportService {
         }
 
         let data = combinedMarkdown.data(using: .utf8) ?? Data()
-        let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: "public.plain-text")
 
         return ExportResult(
             name: "Fume_Export_\(dateString()).md",
@@ -184,6 +183,7 @@ actor ExportService {
         }
 
         let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: "com.adobe.pdf")
+        _ = itemProvider  // Reserved for UIActivityViewController sharing
 
         return ExportResult(
             name: "Fume_Export_\(dateString()).pdf",
@@ -233,8 +233,6 @@ actor ExportService {
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let jsonData = try encoder.encode(package)
 
-        let itemProvider = NSItemProvider(item: jsonData as NSData, typeIdentifier: "public.json")
-
         return ExportResult(
             name: "Fume_Export_\(dateString()).json",
             data: jsonData,
@@ -247,11 +245,11 @@ actor ExportService {
     func exportSource(_ source: Source, format: ExportFormat) async throws -> ExportResult {
         switch format {
         case .obsidian:
-            return try await exportSourceToObsidian(source)
+            return try exportSourceToObsidian(source)
         case .pdf:
-            return try await exportSourceToPDF(source)
+            return try exportSourceToPDF(source)
         case .json:
-            return try await exportSourceToJSON(source)
+            return try exportSourceToJSON(source)
         }
     }
 
@@ -267,6 +265,7 @@ actor ExportService {
 
         let data = content.data(using: .utf8) ?? Data()
         let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: "public.plain-text")
+        _ = itemProvider  // Reserved for UIActivityViewController sharing
 
         let safeName = source.title.replacingOccurrences(of: "/", with: "-").prefix(50)
         return ExportResult(
@@ -375,6 +374,7 @@ actor ExportService {
         }
 
         let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: "com.adobe.pdf")
+        _ = itemProvider  // Reserved for UIActivityViewController sharing
         let safeName = source.title.replacingOccurrences(of: "/", with: "-").prefix(50)
 
         return ExportResult(
@@ -411,7 +411,6 @@ actor ExportService {
         encoder.outputFormatting = .prettyPrinted
         let jsonData = try encoder.encode(export)
 
-        let itemProvider = NSItemProvider(item: jsonData as NSData, typeIdentifier: "public.json")
         let safeName = source.title.replacingOccurrences(of: "/", with: "-").prefix(50)
 
         return ExportResult(
