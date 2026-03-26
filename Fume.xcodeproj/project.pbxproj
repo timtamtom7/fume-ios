@@ -12,12 +12,15 @@
 		12CFAA8B24642D9309EAA80E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DE3D822B24E1B9C9CC23D3 /* CloudKit.framework */; };
 		13B4E5FC044365615ED2A215 /* AppStoreMetadata.md in Resources */ = {isa = PBXBuildFile; fileRef = 22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */; };
 		1BC43AB1140F176667FC60D3 /* EmbeddingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */; };
+		20647A025FE661C61B0524C9 /* FumeR12R20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624E8337BB6FDF97E2E670E /* FumeR12R20.swift */; };
 		22F5A8351B0C4B9243703708 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4499BC2FE4DEE5CAE49C999 /* LibraryViewModel.swift */; };
 		25120B71D21FA4FF2623278E /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */; };
 		25467E78CA3C92573E210004 /* AppStoreMetadata.md in Resources */ = {isa = PBXBuildFile; fileRef = 22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */; };
 		2691F64ABD346EC1930D1DFB /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708BB8697338DCEB234D7F6A /* SyncStatusView.swift */; };
 		2E3433344DE863B57B680931 /* AutomationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BCA0E725C31F7A9460D90B /* AutomationService.swift */; };
+		3057C893CCFF8CB30C195302 /* FumeR12R20Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3573AEBF3018B36CE903A /* FumeR12R20Service.swift */; };
 		312766EAA5B39DD3F117C967 /* FumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DD9CFFD9B9044761D79A1 /* FumeApp.swift */; };
+		34704CD712BE7E1599AEA67D /* FumeR12R20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624E8337BB6FDF97E2E670E /* FumeR12R20.swift */; };
 		35FE8DA5FFE3E08C3C1215C9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE75F734BCD4366FD9158BF /* HomeView.swift */; };
 		3963FAFFCC3522592A14F887 /* ErrorStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */; };
 		3F82BCB2329FFFD422164A21 /* AddContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4A52A5AB490F5ABDC52A5 /* AddContentViewModel.swift */; };
@@ -45,6 +48,7 @@
 		9AEEF39791A25DF3AA63989F /* OnboardingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19493A3AA2DAA3CAA8C147 /* OnboardingStorage.swift */; };
 		9D40362A35F69355D2E19DB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D2A2B837E5EB585634FD596 /* Assets.xcassets */; };
 		9FC161ECA1A965A4EE71FA34 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534561019EDDC30A1997B809 /* NetworkMonitor.swift */; };
+		A23C32E1532AF5826EFC1159 /* FumeR12R20Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3573AEBF3018B36CE903A /* FumeR12R20Service.swift */; };
 		A30402C0BEEC1FDECBC840DD /* ErrorStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */; };
 		A47C8870FF032E00CBD92DB9 /* FumeGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E385D46E09F092CBDE07EC74 /* FumeGraphics.swift */; };
 		A9C8FBF4E79001CB2360EFA9 /* AIQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */; };
@@ -78,6 +82,7 @@
 		041C450BC8BA6BE0F11C93CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0588D907C35BEF8B596225CC /* VisionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionService.swift; sourceTree = "<group>"; };
 		08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateViews.swift; sourceTree = "<group>"; };
+		1624E8337BB6FDF97E2E670E /* FumeR12R20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeR12R20.swift; sourceTree = "<group>"; };
 		22D34E751DFA4D5C83E3FB45 /* AppStoreMetadata.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AppStoreMetadata.md; sourceTree = "<group>"; };
 		38D5B6A85B0DE24E828EC41D /* ObsidianSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObsidianSyncService.swift; sourceTree = "<group>"; };
 		397EF9196610084E528D23E2 /* AIAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAnalysisView.swift; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		947770CE0DFD971130928CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A533079145153552F9C93F98 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		ADCF5477C27CBAEAA1DBD452 /* SyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncService.swift; sourceTree = "<group>"; };
+		B2F3573AEBF3018B36CE903A /* FumeR12R20Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeR12R20Service.swift; sourceTree = "<group>"; };
 		B884406290CCC42A705E3D21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntelligenceService.swift; sourceTree = "<group>"; };
 		BF19493A3AA2DAA3CAA8C147 /* OnboardingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStorage.swift; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 				45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */,
 				6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */,
 				4B91113E75831605DE97026F /* FileImportService.swift */,
+				B2F3573AEBF3018B36CE903A /* FumeR12R20Service.swift */,
 				BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */,
 				534561019EDDC30A1997B809 /* NetworkMonitor.swift */,
 				55674E2733543D088675A97F /* NoteEnhancementService.swift */,
@@ -268,6 +275,7 @@
 		A4BD66682963868FA735ABB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1624E8337BB6FDF97E2E670E /* FumeR12R20.swift */,
 				7D86E3DDF41D2F33EFB1E804 /* Models.swift */,
 			);
 			path = Models;
@@ -450,6 +458,8 @@
 				B7445C156E5C5AA514BB2256 /* FileImportService.swift in Sources */,
 				A47C8870FF032E00CBD92DB9 /* FumeGraphics.swift in Sources */,
 				4BBDD3EC04FD95D00327AD3C /* FumeMacApp.swift in Sources */,
+				34704CD712BE7E1599AEA67D /* FumeR12R20.swift in Sources */,
+				A23C32E1532AF5826EFC1159 /* FumeR12R20Service.swift in Sources */,
 				B1E6B7B4C4C4BF42CB1D2898 /* FumeTheme.swift in Sources */,
 				C38AACF5D323194FE6F2EB05 /* HomeViewModel.swift in Sources */,
 				AA9785D4C21C05A7DD44E137 /* IntelligenceService.swift in Sources */,
@@ -483,6 +493,8 @@
 				4809FAF79C96A88A7574AC85 /* FileImportService.swift in Sources */,
 				312766EAA5B39DD3F117C967 /* FumeApp.swift in Sources */,
 				945853A048CC303D24093F12 /* FumeGraphics.swift in Sources */,
+				20647A025FE661C61B0524C9 /* FumeR12R20.swift in Sources */,
+				3057C893CCFF8CB30C195302 /* FumeR12R20Service.swift in Sources */,
 				41B420644CA7F688F7061E00 /* FumeTheme.swift in Sources */,
 				35FE8DA5FFE3E08C3C1215C9 /* HomeView.swift in Sources */,
 				82E3FB5C9EFA0AA7430ABE38 /* HomeViewModel.swift in Sources */,
