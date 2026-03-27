@@ -109,7 +109,7 @@ struct AIAnalysisView: View {
                 Spacer()
 
                 Text("\(facts.prefix(5).count) found")
-                    .font(.system(size: 10))
+                    .font(.system(size: FumeTokens.fontSizeCaption))
                     .foregroundStyle(FumeColors.textSecondary.opacity(0.7))
             }
 
@@ -157,14 +157,14 @@ struct AIAnalysisView: View {
                 Spacer()
 
                 Text("\(items.count) found")
-                    .font(.system(size: 10))
+                    .font(.system(size: FumeTokens.fontSizeCaption))
                     .foregroundStyle(FumeColors.textSecondary.opacity(0.7))
             }
 
             ForEach(items.prefix(2), id: \.self) { item in
                 HStack(alignment: .top, spacing: 8) {
                     Image(systemName: "arrow.right.circle.fill")
-                        .font(.system(size: 10))
+                        .font(.system(size: FumeTokens.fontSizeCaption))
                         .foregroundStyle(FumeColors.accent.opacity(0.7))
                         .padding(.top, 2)
 
@@ -182,23 +182,23 @@ struct AIAnalysisView: View {
     private var loadingPlaceholder: some View {
         VStack(spacing: 12) {
             HStack(spacing: 8) {
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                     .fill(FumeColors.surfaceRaised.opacity(0.5))
                     .frame(width: 100, height: 12)
 
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                     .fill(FumeColors.surfaceRaised.opacity(0.5))
                     .frame(width: 60, height: 12)
             }
 
-            RoundedRectangle(cornerRadius: 4)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised.opacity(0.3))
-                .frame(height: 10)
+                .frame(height: 11)
                 .padding(.trailing, 40)
 
-            RoundedRectangle(cornerRadius: 4)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised.opacity(0.3))
-                .frame(height: 10)
+                .frame(height: 11)
                 .padding(.trailing, 20)
         }
         .padding(.vertical, 8)
@@ -235,10 +235,10 @@ struct KeyFactChip: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: icon)
-                .font(.system(size: 9))
+                .font(.system(size: 11))
 
             Text(fact.value)
-                .font(.system(size: 11, weight: .medium))
+                .font(.system(size: FumeTokens.fontSizeCaption, weight: .medium))
                 .lineLimit(1)
         }
         .foregroundStyle(FumeColors.textPrimary)
@@ -252,6 +252,7 @@ struct KeyFactChip: View {
             Capsule()
                 .stroke(FumeColors.border.opacity(0.5), lineWidth: 0.5)
         )
+        .accessibilityLabel("\(icon.replacingOccurrences(of: ".", with: " ")): \(fact.value)")
     }
 }
 
@@ -265,7 +266,7 @@ struct SuggestedTagChip: View {
         HStack(spacing: 4) {
             if isAdded {
                 Image(systemName: "checkmark")
-                    .font(.system(size: 9))
+                    .font(.system(size: FumeTokens.fontSizeCaption2))
                     .foregroundStyle(.green)
             }
 
@@ -275,7 +276,7 @@ struct SuggestedTagChip: View {
 
             if !isAdded {
                 Text("+\(Int(suggestion.confidence * 100))%")
-                    .font(.system(size: 9))
+                    .font(.system(size: FumeTokens.fontSizeCaption2))
                     .foregroundStyle(FumeColors.accent.opacity(0.7))
             }
         }
@@ -289,6 +290,7 @@ struct SuggestedTagChip: View {
             Capsule()
                 .stroke(isAdded ? Color.green.opacity(0.3) : FumeColors.accent.opacity(0.3), lineWidth: 0.5)
         )
+        .accessibilityLabel("Suggested tag: \(suggestion.tagName), \(Int(suggestion.confidence * 100))% confidence")
     }
 }
 
@@ -763,7 +765,7 @@ struct StatCard: View {
         .padding(.horizontal, 12)
         .padding(.vertical, 10)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised)
         )
     }

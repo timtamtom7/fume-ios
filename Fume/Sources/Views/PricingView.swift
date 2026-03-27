@@ -52,10 +52,11 @@ struct PricingView: View {
                         // CTA
                         if selectedTier != .free {
                             Button {
+                                FumeHaptic.medium()
                                 showUpgradeConfirm = true
                             } label: {
                                 Text(upgradeButtonTitle)
-                                    .font(.system(size: 17, weight: .semibold))
+                                    .font(.system(size: FumeTokens.fontSizeTitle, weight: .semibold))
                                     .foregroundStyle(FumeColors.background)
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 16)
@@ -64,6 +65,7 @@ struct PricingView: View {
                                             .fill(FumeColors.accent)
                                     )
                             }
+                            .accessibilityLabel("Upgrade to \(selectedTier.name)")
                         }
 
                         // Privacy note
@@ -125,7 +127,7 @@ struct PricingView: View {
 
                 ForEach(SubscriptionTier.allCases, id: \.self) { tier in
                     Text(tier == .free ? "Free" : (tier == .pro ? "Pro" : "Archive"))
-                        .font(.system(size: 11, weight: .medium))
+                        .font(.system(size: FumeTokens.fontSizeCaption2, weight: .medium))
                         .foregroundStyle(tier == selectedTier ? FumeColors.accent : FumeColors.textSecondary)
                         .frame(width: 60)
                 }
@@ -140,10 +142,10 @@ struct PricingView: View {
         }
         .padding(16)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                 .fill(FumeColors.glassOverlay)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                         .stroke(FumeColors.border, lineWidth: 0.5)
                 )
         )
@@ -244,25 +246,28 @@ struct PricingTierCard: View {
     let onSelect: () -> Void
 
     var body: some View {
-        Button(action: onSelect) {
+        Button(action: {
+            FumeHaptic.selection()
+            onSelect()
+        }) {
             VStack(alignment: .leading, spacing: 12) {
                 // Header row
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 4) {
                         HStack(spacing: 8) {
                             Text(tier.name)
-                                .font(.system(size: 17, weight: .bold))
+                                .font(.system(size: FumeTokens.fontSizeTitle, weight: .bold))
                                 .foregroundStyle(tier == .free ? FumeColors.textPrimary : FumeColors.accent)
 
                             if tier != .free {
                                 Text(tier.price)
-                                    .font(.system(size: 13, weight: .medium))
+                                    .font(.system(size: FumeTokens.fontSizeBodySmall, weight: .medium))
                                     .foregroundStyle(FumeColors.textSecondary)
                             }
                         }
 
                         Text(tier.tagline)
-                            .font(.system(size: 12))
+                            .font(.system(size: FumeTokens.fontSizeCaption))
                             .foregroundStyle(FumeColors.textSecondary)
                     }
 
@@ -290,7 +295,7 @@ struct PricingTierCard: View {
                     ForEach(tier.features, id: \.self) { feature in
                         HStack(spacing: 8) {
                             Image(systemName: "checkmark")
-                                .font(.system(size: 11, weight: .bold))
+                                .font(.system(size: FumeTokens.fontSizeCaption2, weight: .bold))
                                 .foregroundStyle(tier == .free ? FumeColors.textSecondary : FumeColors.accent)
 
                             Text(feature)
@@ -302,14 +307,15 @@ struct PricingTierCard: View {
             }
             .padding(16)
             .background(
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                     .fill(isSelected ? FumeColors.sourceHighlight : FumeColors.glassOverlay)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 16)
+                        RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                             .stroke(isSelected ? FumeColors.accent : FumeColors.border, lineWidth: isSelected ? 1.5 : 0.5)
                     )
             )
         }
         .buttonStyle(.plain)
+        .accessibilityLabel("\(tier.name) plan: \(tier.tagline)")
     }
 }

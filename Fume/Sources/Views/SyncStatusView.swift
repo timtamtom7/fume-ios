@@ -44,7 +44,7 @@ struct SyncStatusBar: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised)
         )
         .padding(.horizontal, 16)
@@ -74,7 +74,7 @@ struct SyncStatusBar: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised)
         )
         .padding(.horizontal, 16)
@@ -111,7 +111,7 @@ struct SyncStatusBar: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised)
         )
         .padding(.horizontal, 16)
@@ -132,17 +132,19 @@ struct SyncStatusBar: View {
             Spacer()
 
             Button {
+                FumeHaptic.light()
                 Task { await triggerManualSync() }
             } label: {
                 Text("Sync now")
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(.system(size: FumeTokens.fontSizeCaption2, weight: .semibold))
                     .foregroundStyle(FumeColors.accent)
             }
+            .accessibilityLabel("Sync now")
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised)
         )
         .padding(.horizontal, 16)
@@ -163,17 +165,19 @@ struct SyncStatusBar: View {
             Spacer()
 
             Button {
+                FumeHaptic.light()
                 Task { await triggerManualSync() }
             } label: {
                 Text("Retry")
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(.system(size: FumeTokens.fontSizeCaption2, weight: .semibold))
                     .foregroundStyle(FumeColors.accent)
             }
+            .accessibilityLabel("Retry sync")
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised)
         )
         .padding(.horizontal, 16)
@@ -270,6 +274,7 @@ struct SyncSettingsView: View {
                     // Sync Actions
                     Section {
                         Button {
+                            FumeHaptic.light()
                             Task { await syncNow() }
                         } label: {
                             HStack {
@@ -283,7 +288,7 @@ struct SyncSettingsView: View {
                                 }
 
                                 Text(isSyncing ? "Syncing..." : "Sync Now")
-                                    .font(.system(size: 15))
+                                    .font(.system(size: FumeTokens.fontSizeBodyLarge))
                                     .foregroundStyle(isSyncing ? FumeColors.textSecondary : FumeColors.accent)
 
                                 Spacer()
@@ -291,6 +296,7 @@ struct SyncSettingsView: View {
                         }
                         .disabled(isSyncing)
                         .listRowBackground(FumeColors.surfaceRaised)
+                        .accessibilityLabel("Sync Now")
                     } header: {
                         Text("Actions")
                     }

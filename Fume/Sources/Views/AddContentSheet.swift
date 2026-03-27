@@ -122,10 +122,10 @@ struct AddContentSheet: View {
                 .foregroundStyle(FumeColors.textPrimary)
                 .padding(14)
                 .background(
-                    RoundedRectangle(cornerRadius: 14)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                         .fill(FumeColors.surfaceRaised)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 14)
+                            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                 .stroke(FumeColors.border, lineWidth: 0.5)
                         )
                 )
@@ -137,10 +137,10 @@ struct AddContentSheet: View {
                 .frame(minHeight: 200)
                 .padding(12)
                 .background(
-                    RoundedRectangle(cornerRadius: 14)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                         .fill(FumeColors.surfaceRaised)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 14)
+                            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                 .stroke(FumeColors.border, lineWidth: 0.5)
                         )
                 )
@@ -174,10 +174,10 @@ struct AddContentSheet: View {
                 .autocorrectionDisabled()
                 .padding(14)
                 .background(
-                    RoundedRectangle(cornerRadius: 14)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                         .fill(FumeColors.surfaceRaised)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 14)
+                            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                 .stroke(FumeColors.border, lineWidth: 0.5)
                         )
                 )
@@ -226,6 +226,7 @@ struct AddContentSheet: View {
                     }
 
                     Button {
+                        FumeHaptic.medium()
                         if viewModel.isRecording {
                             Task { await viewModel.stopRecording() }
                         } else {
@@ -236,7 +237,7 @@ struct AddContentSheet: View {
                             Image(systemName: viewModel.isRecording ? "stop.fill" : "mic.fill")
                             Text(viewModel.isRecording ? "Stop" : "Start Recording")
                         }
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.system(size: FumeTokens.fontSizeBodyLarge, weight: .semibold))
                         .foregroundStyle(FumeColors.background)
                         .padding(.horizontal, 32)
                         .padding(.vertical, 14)
@@ -245,6 +246,7 @@ struct AddContentSheet: View {
                                 .fill(viewModel.isRecording ? FumeColors.textSecondary : FumeColors.accent)
                         )
                     }
+                    .accessibilityLabel(viewModel.isRecording ? "Stop recording" : "Start recording")
 
                     if viewModel.isRecording && !viewModel.recordingTranscript.isEmpty {
                         Text(viewModel.recordingTranscript)
@@ -273,17 +275,18 @@ struct AddContentSheet: View {
                         .padding(12)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(
-                            RoundedRectangle(cornerRadius: 12)
+                            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                 .fill(FumeColors.surfaceRaised)
                         )
                 }
 
                 HStack(spacing: 12) {
                     Button {
+                        FumeHaptic.light()
                         viewModel.recognizedText = ""
                     } label: {
                         Text("Discard")
-                            .font(.system(size: 14, weight: .medium))
+                            .font(.system(size: FumeTokens.fontSizeBodySmall, weight: .medium))
                             .foregroundStyle(FumeColors.textSecondary)
                             .padding(.horizontal, 20)
                             .padding(.vertical, 12)
@@ -292,15 +295,17 @@ struct AddContentSheet: View {
                                     .stroke(FumeColors.border, lineWidth: 1)
                             )
                     }
+                    .accessibilityLabel("Discard recording")
 
                     Button {
+                        FumeHaptic.medium()
                         Task { await viewModel.saveVoiceMemo() }
                     } label: {
                         HStack(spacing: 6) {
                             Image(systemName: "square.and.arrow.down")
                             Text("Save")
                         }
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.system(size: FumeTokens.fontSizeBodySmall, weight: .semibold))
                         .foregroundStyle(FumeColors.background)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 12)
@@ -309,6 +314,7 @@ struct AddContentSheet: View {
                                 .fill(FumeColors.accent)
                         )
                     }
+                    .accessibilityLabel("Save voice memo")
                 }
             }
         }
@@ -324,7 +330,7 @@ struct AddContentSheet: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxHeight: 200)
-                        .cornerRadius(16)
+                        .cornerRadius(FumeTokens.cornerRadiusLarge)
 
                     if !viewModel.recognizedText.isEmpty {
                         VStack(alignment: .leading, spacing: 8) {
@@ -342,7 +348,7 @@ struct AddContentSheet: View {
                                 .padding(12)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 12)
+                                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                         .fill(FumeColors.surfaceRaised)
                                 )
                         }
@@ -350,11 +356,12 @@ struct AddContentSheet: View {
 
                     HStack(spacing: 12) {
                         Button {
+                            FumeHaptic.light()
                             viewModel.capturedImage = nil
                             viewModel.recognizedText = ""
                         } label: {
                             Text("Discard")
-                                .font(.system(size: 14, weight: .medium))
+                                .font(.system(size: FumeTokens.fontSizeBodySmall, weight: .medium))
                                 .foregroundStyle(FumeColors.textSecondary)
                                 .padding(.horizontal, 20)
                                 .padding(.vertical, 12)
@@ -363,15 +370,17 @@ struct AddContentSheet: View {
                                         .stroke(FumeColors.border, lineWidth: 1)
                                 )
                         }
+                        .accessibilityLabel("Discard image")
 
                         Button {
+                            FumeHaptic.medium()
                             Task { await viewModel.saveOCRText() }
                         } label: {
                             HStack(spacing: 6) {
                                 Image(systemName: "square.and.arrow.down")
                                 Text("Save")
                             }
-                            .font(.system(size: 14, weight: .semibold))
+                            .font(.system(size: FumeTokens.fontSizeBodySmall, weight: .semibold))
                             .foregroundStyle(FumeColors.background)
                             .padding(.horizontal, 20)
                             .padding(.vertical, 12)
@@ -380,6 +389,7 @@ struct AddContentSheet: View {
                                     .fill(FumeColors.accent)
                             )
                         }
+                        .accessibilityLabel("Save OCR text")
                     }
                 }
             } else {
@@ -422,10 +432,10 @@ struct AddContentSheet: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 32)
             .background(
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                     .fill(FumeColors.glassOverlay)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 16)
+                        RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                             .stroke(FumeColors.border, lineWidth: 0.5)
                     )
             )
@@ -433,12 +443,17 @@ struct AddContentSheet: View {
     }
 
     private func saveButton(isEnabled: Bool, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
+        Button(action: {
+            if isEnabled {
+                FumeHaptic.medium()
+            }
+            action()
+        }) {
             HStack(spacing: 8) {
                 Image(systemName: "square.and.arrow.down")
                 Text("Save")
             }
-            .font(.system(size: 15, weight: .semibold))
+            .font(.system(size: FumeTokens.fontSizeBodyLarge, weight: .semibold))
             .foregroundStyle(isEnabled ? FumeColors.background : FumeColors.textSecondary)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
@@ -448,6 +463,7 @@ struct AddContentSheet: View {
             )
         }
         .disabled(!isEnabled)
+        .accessibilityLabel("Save content")
     }
 
     private var processingOverlay: some View {

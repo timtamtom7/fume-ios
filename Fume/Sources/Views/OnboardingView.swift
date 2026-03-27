@@ -47,9 +47,10 @@ struct OnboardingView: View {
                             completeOnboarding()
                         } label: {
                             Text("Skip")
-                                .font(.system(size: 14))
+                                .font(.system(size: FumeTokens.fontSizeBodySmall))
                                 .foregroundStyle(FumeColors.textSecondary)
                         }
+                        .accessibilityLabel("Skip onboarding")
                     }
                 }
                 .padding(.bottom, 40)
@@ -104,12 +105,16 @@ struct OnboardingScreen2: View {
             VStack(spacing: 16) {
                 HStack(spacing: 16) {
                     ContentTypeCard(icon: "note.text", label: "Notes", color: FumeColors.accent)
+                        .accessibilityLabel("Content type: Notes")
                     ContentTypeCard(icon: "link", label: "Articles", color: Color(hex: "3b82f6"))
+                        .accessibilityLabel("Content type: Articles")
                 }
 
                 HStack(spacing: 16) {
                     ContentTypeCard(icon: "waveform", label: "Voice", color: Color(hex: "8b5cf6"))
+                        .accessibilityLabel("Content type: Voice memos")
                     ContentTypeCard(icon: "photo", label: "Images", color: Color(hex: "10b981"))
+                        .accessibilityLabel("Content type: Images")
                 }
             }
             .padding(.horizontal, 32)
@@ -197,11 +202,12 @@ struct OnboardingScreen4: View {
 
             // Start button
             Button {
+                FumeHaptic.success()
                 OnboardingStorage.shared.completeOnboarding()
                 appState.hasCompletedOnboarding = true
             } label: {
                 Text("Start using Fume")
-                    .font(.system(size: 17, weight: .semibold))
+                    .font(.system(size: FumeTokens.fontSizeTitle, weight: .semibold))
                     .foregroundStyle(FumeColors.background)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 16)
@@ -211,6 +217,7 @@ struct OnboardingScreen4: View {
                     )
             }
             .padding(.horizontal, 32)
+            .accessibilityLabel("Start using Fume")
             .padding(.bottom, 60)
         }
     }
@@ -226,7 +233,7 @@ struct ContentTypeCard: View {
     var body: some View {
         VStack(spacing: 10) {
             ZStack {
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                     .fill(color.opacity(0.15))
                     .frame(height: 70)
 

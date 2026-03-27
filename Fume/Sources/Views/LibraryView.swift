@@ -53,12 +53,14 @@ struct LibraryView: View {
                     HStack(spacing: 12) {
                         Menu {
                             Button {
+                                FumeHaptic.light()
                                 showImportOptions = true
                             } label: {
                                 Label("Import Files", systemImage: "square.and.arrow.down")
                             }
 
                             Button {
+                                FumeHaptic.light()
                                 showExportOptions = true
                             } label: {
                                 Label("Export Library", systemImage: "square.and.arrow.up")
@@ -69,6 +71,7 @@ struct LibraryView: View {
                         }
 
                         Button {
+                            FumeHaptic.light()
                             showTagSheet = true
                         } label: {
                             Image(systemName: "tag")
@@ -187,16 +190,18 @@ struct LibraryView: View {
                     .scaleEffect(0.8)
             } else if !viewModel.searchText.isEmpty {
                 Button {
+                    FumeHaptic.light()
                     viewModel.clearSearch()
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                         .foregroundStyle(FumeColors.textSecondary)
                 }
+                .accessibilityLabel("Clear search")
             }
         }
         .padding(12)
         .background(
-            RoundedRectangle(cornerRadius: 14)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                 .fill(FumeColors.surfaceRaised)
         )
         .padding(.horizontal, 16)
@@ -385,7 +390,7 @@ struct SearchResultCard: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 10) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                         .fill(FumeColors.surfaceRaised)
                         .frame(width: 40, height: 40)
 
@@ -419,10 +424,10 @@ struct SearchResultCard: View {
         }
         .padding(14)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                 .fill(FumeColors.glassOverlay)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                         .stroke(FumeColors.border, lineWidth: 0.5)
                 )
         )
@@ -526,7 +531,7 @@ struct SourceGridCard: View {
         VStack(alignment: .leading, spacing: 8) {
             // Thumbnail or Icon
             ZStack {
-                RoundedRectangle(cornerRadius: 12)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                     .fill(FumeColors.surfaceRaised)
 
                 if let thumbnailData = source.thumbnailData,
@@ -536,7 +541,7 @@ struct SourceGridCard: View {
                         .scaledToFill()
                         .frame(height: 80)
                         .clipped()
-                        .cornerRadius(12)
+                        .cornerRadius(FumeTokens.cornerRadiusMedium)
                 } else {
                     Image(systemName: source.type.icon)
                         .font(.system(size: 28))
@@ -565,7 +570,7 @@ struct SourceGridCard: View {
                         }
                         if tags.count > 2 {
                             Text("+\(tags.count - 2)")
-                                .font(.system(size: 10))
+                                .font(.system(size: FumeTokens.fontSizeCaption2))
                                 .foregroundStyle(FumeColors.textSecondary)
                         }
                     }
@@ -574,10 +579,10 @@ struct SourceGridCard: View {
         }
         .padding(12)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                 .fill(FumeColors.glassOverlay)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                         .stroke(FumeColors.border, lineWidth: 0.5)
                 )
         )
@@ -641,6 +646,7 @@ struct TagManagementSheet: View {
                     VStack(spacing: 12) {
                         // Clear filter option
                         Button {
+                            FumeHaptic.light()
                             onSelectTag(nil)
                         } label: {
                             HStack {
@@ -652,7 +658,7 @@ struct TagManagementSheet: View {
                             }
                             .padding(14)
                             .background(
-                                RoundedRectangle(cornerRadius: 12)
+                                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                     .fill(FumeColors.surfaceRaised)
                             )
                         }
@@ -675,20 +681,22 @@ struct TagManagementSheet: View {
                                 }
 
                                 Button {
+                                    FumeHaptic.light()
                                     onDeleteTag(tag)
                                 } label: {
                                     Image(systemName: "trash")
-                                        .font(.system(size: 13))
+                                        .font(.system(size: FumeTokens.fontSizeBodySmall))
                                         .foregroundStyle(FumeColors.textSecondary)
                                 }
+                                .accessibilityLabel("Delete tag \(tag.name)")
                             }
                             .padding(14)
                             .background(
-                                RoundedRectangle(cornerRadius: 12)
+                                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                     .fill(selectedTagID == tag.id ? Color(hex: tag.colorHex).opacity(0.1) : FumeColors.surfaceRaised)
                             )
                             .overlay(
-                                RoundedRectangle(cornerRadius: 12)
+                                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                     .stroke(selectedTagID == tag.id ? Color(hex: tag.colorHex).opacity(0.3) : FumeColors.border, lineWidth: 0.5)
                             )
                             .contentShape(Rectangle())
@@ -699,6 +707,7 @@ struct TagManagementSheet: View {
 
                         // Create new tag button
                         Button {
+                            FumeHaptic.light()
                             showCreateTag = true
                         } label: {
                             HStack {
@@ -710,7 +719,7 @@ struct TagManagementSheet: View {
                             }
                             .padding(14)
                             .background(
-                                RoundedRectangle(cornerRadius: 12)
+                                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                     .stroke(FumeColors.accent.opacity(0.3), lineWidth: 1)
                             )
                         }
@@ -818,7 +827,7 @@ struct ImportSourceOption: View {
         Button(action: action) {
             HStack(spacing: 14) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                         .fill(FumeColors.surfaceRaised)
                         .frame(width: 44, height: 44)
 
@@ -845,10 +854,10 @@ struct ImportSourceOption: View {
             }
             .padding(14)
             .background(
-                RoundedRectangle(cornerRadius: 14)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                     .fill(FumeColors.glassOverlay)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 14)
+                        RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                             .stroke(FumeColors.border, lineWidth: 0.5)
                     )
             )
@@ -971,7 +980,7 @@ struct ExportFormatOption: View {
         Button(action: action) {
             HStack(spacing: 14) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                         .fill(FumeColors.surfaceRaised)
                         .frame(width: 44, height: 44)
 
@@ -997,11 +1006,11 @@ struct ExportFormatOption: View {
             }
             .padding(14)
             .background(
-                RoundedRectangle(cornerRadius: 14)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                     .fill(isSelected ? FumeColors.accent.opacity(0.08) : FumeColors.glassOverlay)
             )
             .overlay(
-                RoundedRectangle(cornerRadius: 14)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                     .stroke(isSelected ? FumeColors.accent.opacity(0.3) : FumeColors.border, lineWidth: 0.5)
             )
         }

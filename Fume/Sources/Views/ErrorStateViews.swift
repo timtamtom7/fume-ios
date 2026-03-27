@@ -133,10 +133,11 @@ struct ErrorStateView: View {
             VStack(spacing: 12) {
                 if let suggestion = error.suggestion {
                     Button {
+                        FumeHaptic.light()
                         handleAction()
                     } label: {
                         Text(suggestion)
-                            .font(.system(size: 15, weight: .semibold))
+                            .font(.system(size: FumeTokens.fontSizeBodyLarge, weight: .semibold))
                             .foregroundStyle(FumeColors.background)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 14)
@@ -145,6 +146,7 @@ struct ErrorStateView: View {
                                     .fill(FumeColors.accent)
                             )
                     }
+                    .accessibilityLabel(suggestion)
                 }
 
                 Button {
@@ -203,12 +205,14 @@ struct ErrorBanner: View {
 
             if onAction != nil {
                 Button {
+                    FumeHaptic.light()
                     onAction?()
                 } label: {
                     Text(error.suggestion ?? "Retry")
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.system(size: FumeTokens.fontSizeCaption, weight: .medium))
                         .foregroundStyle(FumeColors.accent)
                 }
+                .accessibilityLabel(error.suggestion ?? "Retry")
             }
 
             Button {
@@ -221,10 +225,10 @@ struct ErrorBanner: View {
         }
         .padding(14)
         .background(
-            RoundedRectangle(cornerRadius: 14)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                 .fill(FumeColors.glassOverlay)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 14)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                         .stroke(FumeColors.accent.opacity(0.3), lineWidth: 1)
                 )
         )
@@ -320,10 +324,11 @@ struct StorageLimitBanner: View {
             }
 
             Button {
+                FumeHaptic.medium()
                 onUpgrade()
             } label: {
                 Text("Upgrade to Pro")
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.system(size: FumeTokens.fontSizeBodySmall, weight: .semibold))
                     .foregroundStyle(FumeColors.background)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 10)
@@ -332,13 +337,14 @@ struct StorageLimitBanner: View {
                             .fill(FumeColors.accent)
                     )
             }
+            .accessibilityLabel("Upgrade to Pro")
         }
         .padding(16)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                 .fill(FumeColors.sourceHighlight)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                         .stroke(FumeColors.accent.opacity(0.3), lineWidth: 1)
                 )
         )
@@ -365,16 +371,18 @@ struct SpeechPermissionBanner: View {
             Spacer()
 
             Button {
+                FumeHaptic.light()
                 onOpenSettings()
             } label: {
                 Text("Settings")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.system(size: FumeTokens.fontSizeCaption, weight: .semibold))
                     .foregroundStyle(FumeColors.accent)
             }
+            .accessibilityLabel("Open Settings")
         }
         .padding(14)
         .background(
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                 .fill(FumeColors.surfaceRaised)
         )
         .padding(.horizontal, 16)

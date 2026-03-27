@@ -51,12 +51,14 @@ struct HomeView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 16) {
                         Button {
+                            FumeHaptic.light()
                             showAddSheet = true
                         } label: {
                             Image(systemName: "plus.circle.fill")
                                 .font(.title2)
                                 .foregroundStyle(FumeColors.accent)
                         }
+                        .accessibilityLabel("Add content")
                     }
                 }
             }
@@ -82,10 +84,10 @@ struct HomeView: View {
                     .lineLimit(1...4)
                     .padding(14)
                     .background(
-                        RoundedRectangle(cornerRadius: 16)
+                        RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                             .fill(FumeColors.surfaceRaised)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 16)
+                                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                                     .stroke(FumeColors.border, lineWidth: 0.5)
                             )
                     )
@@ -94,6 +96,7 @@ struct HomeView: View {
                     }
 
                 Button {
+                    FumeHaptic.light()
                     Task { await viewModel.submitQuery() }
                 } label: {
                     Image(systemName: "arrow.up.circle.fill")
@@ -105,6 +108,7 @@ struct HomeView: View {
                         )
                 }
                 .disabled(viewModel.queryText.isEmpty || viewModel.isThinking)
+                .accessibilityLabel("Submit query")
             }
 
             if viewModel.response != nil {
@@ -210,13 +214,14 @@ struct HomeView: View {
             }
 
             Button {
+                FumeHaptic.medium()
                 showAddSheet = true
             } label: {
                 HStack(spacing: 8) {
                     Image(systemName: "plus")
                     Text("Add your first note")
                 }
-                .font(.system(size: 15, weight: .semibold))
+                .font(.system(size: FumeTokens.fontSizeBodyLarge, weight: .semibold))
                 .foregroundStyle(FumeColors.background)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 12)
@@ -225,6 +230,7 @@ struct HomeView: View {
                         .fill(FumeColors.accent)
                 )
             }
+            .accessibilityLabel("Add your first note")
 
             Spacer()
         }
@@ -291,10 +297,10 @@ struct ThinkingIndicator: View {
         .padding(.horizontal, 24)
         .padding(.vertical, 20)
         .background(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusXLarge)
                 .fill(FumeColors.glassOverlay)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusXLarge)
                         .stroke(FumeColors.accent.opacity(0.3), lineWidth: 1)
                 )
         )

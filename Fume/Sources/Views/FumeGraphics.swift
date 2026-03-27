@@ -124,10 +124,10 @@ struct QueryIllustration: View {
                 .padding(.horizontal, 14)
                 .padding(.vertical, 10)
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                         .fill(FumeColors.surfaceRaised)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 16)
+                            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                                 .stroke(FumeColors.accent.opacity(0.4), lineWidth: 1)
                         )
                 )
@@ -149,23 +149,23 @@ struct QueryIllustration: View {
                     Rectangle()
                         .fill(FumeColors.textSecondary.opacity(0.3))
                         .frame(height: 12)
-                        .cornerRadius(4)
+                        .cornerRadius(FumeTokens.cornerRadiusSmall)
                         .padding(.trailing, 40)
 
                     Rectangle()
                         .fill(FumeColors.textSecondary.opacity(0.3))
                         .frame(height: 12)
-                        .cornerRadius(4)
+                        .cornerRadius(FumeTokens.cornerRadiusSmall)
                         .padding(.trailing, 20)
 
                     Rectangle()
                         .fill(FumeColors.textSecondary.opacity(0.2))
                         .frame(width: 100, height: 12)
-                        .cornerRadius(4)
+                        .cornerRadius(FumeTokens.cornerRadiusSmall)
                 }
                 .padding(14)
                 .glassCard()
-                .amberGlow(isActive: true, cornerRadius: 16)
+                .amberGlow(isActive: true, cornerRadius: FumeTokens.cornerRadiusLarge)
                 .offset(x: isAnimating ? 0 : 20)
                 .opacity(isAnimating ? 1 : 0)
             }
@@ -452,10 +452,10 @@ struct SearchHighlightBadge: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: "sparkle.magnifyingglass")
-                .font(.system(size: 10))
+                .font(.system(size: FumeTokens.fontSizeCaption))
 
             Text("\(Int(matchScore * 100))% match")
-                .font(.system(size: 10, weight: .medium))
+                .font(.system(size: FumeTokens.fontSizeCaption, weight: .medium))
         }
         .foregroundStyle(FumeColors.accent)
         .padding(.horizontal, 8)
@@ -641,10 +641,10 @@ struct ImportProgressView: View {
         }
         .padding(16)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                 .fill(FumeColors.glassOverlay)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusLarge)
                         .stroke(FumeColors.border, lineWidth: 0.5)
                 )
         )
@@ -667,7 +667,7 @@ struct KeywordMatchIndicator: View {
                 HStack(spacing: 6) {
                     ForEach(matchedKeywords.prefix(4), id: \.self) { keyword in
                         Text(keyword)
-                            .font(.system(size: 10, weight: .medium))
+                            .font(.system(size: FumeTokens.fontSizeCaption2, weight: .medium))
                             .foregroundStyle(FumeColors.accent)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 3)
@@ -679,7 +679,7 @@ struct KeywordMatchIndicator: View {
 
                     if matchedKeywords.count > 4 {
                         Text("+\(matchedKeywords.count - 4)")
-                            .font(.system(size: 10))
+                            .font(.system(size: FumeTokens.fontSizeCaption2))
                             .foregroundStyle(FumeColors.textSecondary)
                     }
                 }

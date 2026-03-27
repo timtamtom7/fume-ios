@@ -145,7 +145,7 @@ struct SourceDetailView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 12) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 12)
+                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                         .fill(FumeColors.surfaceRaised)
                         .frame(width: 48, height: 48)
 
@@ -174,7 +174,7 @@ struct SourceDetailView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(maxHeight: 150)
-                    .cornerRadius(12)
+                    .cornerRadius(FumeTokens.cornerRadiusMedium)
             }
         }
         .glassCard()
@@ -385,7 +385,7 @@ struct RelatedSourceRow: View {
                 .frame(width: 8, height: 8)
 
             ZStack {
-                RoundedRectangle(cornerRadius: 8)
+                RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                     .fill(FumeColors.surfaceRaised)
                     .frame(width: 32, height: 32)
 
@@ -408,12 +408,12 @@ struct RelatedSourceRow: View {
             Spacer()
 
             Image(systemName: "arrow.right")
-                .font(.system(size: 10))
+                .font(.system(size: FumeTokens.fontSizeCaption))
                 .foregroundStyle(FumeColors.accent.opacity(0.6))
         }
         .padding(8)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusSmall)
                 .fill(FumeColors.surfaceRaised.opacity(0.5))
         )
     }
@@ -471,7 +471,7 @@ struct SourceConnectionsView: View {
                         )
                         .overlay(
                             Image(systemName: source.type.icon)
-                                .font(.system(size: 10))
+                                .font(.system(size: FumeTokens.fontSizeCaption))
                                 .foregroundStyle(FumeColors.accent)
                         )
                         .position(point)
@@ -611,11 +611,11 @@ struct TagEditorSheet: View {
                                 }
                                 .padding(14)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 12)
+                                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                         .fill(selectedTagIDs.contains(tag.id) ? Color(hex: tag.colorHex).opacity(0.1) : FumeColors.surfaceRaised)
                                 )
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
+                                    RoundedRectangle(cornerRadius: FumeTokens.cornerRadiusMedium)
                                         .stroke(selectedTagIDs.contains(tag.id) ? Color(hex: tag.colorHex).opacity(0.3) : FumeColors.border, lineWidth: 0.5)
                                 )
                                 .contentShape(Rectangle())
