@@ -39,11 +39,14 @@
 		5E429466ED639ED23F7CCD0C /* SourceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58664ACE4BF6E9E7387B6737 /* SourceDetailView.swift */; };
 		621640A0BCC00F3061381193 /* AIFumesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C79DB99A7EBA8E816E3780 /* AIFumesService.swift */; };
 		6C2A042C3DF87BAEE00DF4AF /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */; };
+		6E3E7DD8E891394F5A54056A /* KnowledgeSharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636E6DC8B18AE6E54F60A66 /* KnowledgeSharingService.swift */; };
 		7132CB86A3852255111E42AB /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */; };
 		722E73282351B763DF6F95CB /* MacSourceLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B23EF3215B1AD3384D948F9 /* MacSourceLibraryView.swift */; };
 		730D34B99BB5DD4A8BC813D6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86E3DDF41D2F33EFB1E804 /* Models.swift */; };
+		7F7202D29DF43BFDB1022A53 /* MacCollaborativeSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8102271D4ECC9B34030F9A8F /* MacCollaborativeSpaceView.swift */; };
 		82E3FB5C9EFA0AA7430ABE38 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */; };
 		84A2EA389278D68699F3BCD4 /* AIQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */; };
+		85AD600AC341FE40F937512E /* KnowledgeSharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636E6DC8B18AE6E54F60A66 /* KnowledgeSharingService.swift */; };
 		86DF3DC3F20F212B926D3D87 /* AutoTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EDEBC52DB6FA4F11168A89 /* AutoTagService.swift */; };
 		8C03A0B7BE7EDC4D4F7AE809 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86E3DDF41D2F33EFB1E804 /* Models.swift */; };
 		8E1E8416DA73A2E2110E1D9C /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCF5477C27CBAEAA1DBD452 /* SyncService.swift */; };
@@ -79,6 +82,7 @@
 		DC9A469D593CE70F78A9AFB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884406290CCC42A705E3D21 /* ContentView.swift */; };
 		DEE4DEF85EEC476C81026CAD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3E784A06781BBFC408980FBD /* PrivacyInfo.xcprivacy */; };
 		E0AB04DB37CE1B01851095CE /* RealContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F279C7648779893FB8CEE2E /* RealContent.swift */; };
+		E1432EC190A2F2AC8C92ECB4 /* MacSharedPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F51D0EB07ABFC4052E44BA6 /* MacSharedPagesView.swift */; };
 		E3AB867B2C74619B2C9FD6A7 /* ObsidianSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5B6A85B0DE24E828EC41D /* ObsidianSyncService.swift */; };
 		E4567CEB85AC12B89611075A /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A000A9143B0D3E9DD09E10 /* PricingView.swift */; };
 		F1675F944D95230E7EDD6796 /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588D907C35BEF8B596225CC /* VisionService.swift */; };
@@ -123,11 +127,14 @@
 		73FD4F6E7A289DDAE2725F11 /* MacSpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSpeechService.swift; sourceTree = "<group>"; };
 		7C67A9128C4F4044D4DE0319 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		7D86E3DDF41D2F33EFB1E804 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		7F51D0EB07ABFC4052E44BA6 /* MacSharedPagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSharedPagesView.swift; sourceTree = "<group>"; };
+		8102271D4ECC9B34030F9A8F /* MacCollaborativeSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacCollaborativeSpaceView.swift; sourceTree = "<group>"; };
 		8D2A2B837E5EB585634FD596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		947770CE0DFD971130928CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A533079145153552F9C93F98 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		ADCF5477C27CBAEAA1DBD452 /* SyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncService.swift; sourceTree = "<group>"; };
 		B2F3573AEBF3018B36CE903A /* FumeR12R20Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeR12R20Service.swift; sourceTree = "<group>"; };
+		B636E6DC8B18AE6E54F60A66 /* KnowledgeSharingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeSharingService.swift; sourceTree = "<group>"; };
 		B884406290CCC42A705E3D21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntelligenceService.swift; sourceTree = "<group>"; };
 		BE62B65E7047EBC9CF22FDB1 /* MacExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacExportService.swift; sourceTree = "<group>"; };
@@ -271,6 +278,7 @@
 				4B91113E75831605DE97026F /* FileImportService.swift */,
 				B2F3573AEBF3018B36CE903A /* FumeR12R20Service.swift */,
 				BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */,
+				B636E6DC8B18AE6E54F60A66 /* KnowledgeSharingService.swift */,
 				534561019EDDC30A1997B809 /* NetworkMonitor.swift */,
 				55674E2733543D088675A97F /* NoteEnhancementService.swift */,
 				38D5B6A85B0DE24E828EC41D /* ObsidianSyncService.swift */,
@@ -287,8 +295,10 @@
 			children = (
 				DB4201DC25C852B2664DBE76 /* FumeMacApp.swift */,
 				504CFF2652A0EF7D9584AABE /* FumeMenuBar.swift */,
+				8102271D4ECC9B34030F9A8F /* MacCollaborativeSpaceView.swift */,
 				BE62B65E7047EBC9CF22FDB1 /* MacExportService.swift */,
 				C7180E0CC1F16911B2671358 /* MacLibraryView.swift */,
+				7F51D0EB07ABFC4052E44BA6 /* MacSharedPagesView.swift */,
 				73FD4F6E7A289DDAE2725F11 /* MacSpeechService.swift */,
 				3E1918019226C47BAA78B7C4 /* MacTheme.swift */,
 				FA09FDCB55624075752045A1 /* Views */,
@@ -501,13 +511,16 @@
 				A23C32E1532AF5826EFC1159 /* FumeR12R20Service.swift in Sources */,
 				C38AACF5D323194FE6F2EB05 /* HomeViewModel.swift in Sources */,
 				AA9785D4C21C05A7DD44E137 /* IntelligenceService.swift in Sources */,
+				6E3E7DD8E891394F5A54056A /* KnowledgeSharingService.swift in Sources */,
 				4ECEEF9264B8D638490AAAD0 /* LibraryViewModel.swift in Sources */,
 				C232E415BE6DD6B44A980AE4 /* MacAIChatView.swift in Sources */,
+				7F7202D29DF43BFDB1022A53 /* MacCollaborativeSpaceView.swift in Sources */,
 				3AA95F1D5AF10CDAB7BC55AD /* MacContentView.swift in Sources */,
 				99D16CF072A081CDB6DF0ED1 /* MacExportService.swift in Sources */,
 				90077EB68CBE4201119BA1C1 /* MacLibraryView.swift in Sources */,
 				0C6ED3B8EE3CDD7687F8796D /* MacNoteEditorView.swift in Sources */,
 				AE998E5B6FCA60A595E044B6 /* MacSettingsView.swift in Sources */,
+				E1432EC190A2F2AC8C92ECB4 /* MacSharedPagesView.swift in Sources */,
 				722E73282351B763DF6F95CB /* MacSourceLibraryView.swift in Sources */,
 				CF58B08986463C1A8B2AF3E7 /* MacSpeechService.swift in Sources */,
 				A84BBAB765694D33DB8D9BC2 /* MacTheme.swift in Sources */,
@@ -547,6 +560,7 @@
 				35FE8DA5FFE3E08C3C1215C9 /* HomeView.swift in Sources */,
 				82E3FB5C9EFA0AA7430ABE38 /* HomeViewModel.swift in Sources */,
 				BFD0B2FC716B7BC382862C2E /* IntelligenceService.swift in Sources */,
+				85AD600AC341FE40F937512E /* KnowledgeSharingService.swift in Sources */,
 				B7A0A8411AEB3255A6612CE4 /* LibraryView.swift in Sources */,
 				22F5A8351B0C4B9243703708 /* LibraryViewModel.swift in Sources */,
 				8C03A0B7BE7EDC4D4F7AE809 /* Models.swift in Sources */,
