@@ -23,7 +23,6 @@
 		312766EAA5B39DD3F117C967 /* FumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554DD9CFFD9B9044761D79A1 /* FumeApp.swift */; };
 		34704CD712BE7E1599AEA67D /* FumeR12R20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624E8337BB6FDF97E2E670E /* FumeR12R20.swift */; };
 		35FE8DA5FFE3E08C3C1215C9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE75F734BCD4366FD9158BF /* HomeView.swift */; };
-		3963FAFFCC3522592A14F887 /* ErrorStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */; };
 		3AA95F1D5AF10CDAB7BC55AD /* MacContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59662F3E7AE613BC07ABF51A /* MacContentView.swift */; };
 		3F82BCB2329FFFD422164A21 /* AddContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4A52A5AB490F5ABDC52A5 /* AddContentViewModel.swift */; };
 		41B420644CA7F688F7061E00 /* FumeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4798541EA4B5BFFEE0CA3D /* FumeTheme.swift */; };
@@ -56,13 +55,12 @@
 		9FC161ECA1A965A4EE71FA34 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534561019EDDC30A1997B809 /* NetworkMonitor.swift */; };
 		A23C32E1532AF5826EFC1159 /* FumeR12R20Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F3573AEBF3018B36CE903A /* FumeR12R20Service.swift */; };
 		A30402C0BEEC1FDECBC840DD /* ErrorStateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A11F60443E9F5A129710E2 /* ErrorStateViews.swift */; };
-		A47C8870FF032E00CBD92DB9 /* FumeGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E385D46E09F092CBDE07EC74 /* FumeGraphics.swift */; };
+		A84BBAB765694D33DB8D9BC2 /* MacTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1918019226C47BAA78B7C4 /* MacTheme.swift */; };
 		A9C8FBF4E79001CB2360EFA9 /* AIQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */; };
 		AA9785D4C21C05A7DD44E137 /* IntelligenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D4E67AD6607D4E80D5307 /* IntelligenceService.swift */; };
 		AAED34899BDEC9A2BEBF63A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D2A2B837E5EB585634FD596 /* Assets.xcassets */; };
 		ABAF1D24086E56BBDD1F205A /* AddContentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5439EE72C610D04A5A969B6B /* AddContentSheet.swift */; };
 		AE998E5B6FCA60A595E044B6 /* MacSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AC10191A0DF5CDAEA9177 /* MacSettingsView.swift */; };
-		B1E6B7B4C4C4BF42CB1D2898 /* FumeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4798541EA4B5BFFEE0CA3D /* FumeTheme.swift */; };
 		B7445C156E5C5AA514BB2256 /* FileImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B91113E75831605DE97026F /* FileImportService.swift */; };
 		B7A0A8411AEB3255A6612CE4 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533079145153552F9C93F98 /* LibraryView.swift */; };
 		BD3836120ACE18D4252FF656 /* NoteEnhancementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55674E2733543D088675A97F /* NoteEnhancementService.swift */; };
@@ -98,6 +96,7 @@
 		38D5B6A85B0DE24E828EC41D /* ObsidianSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObsidianSyncService.swift; sourceTree = "<group>"; };
 		397EF9196610084E528D23E2 /* AIAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAnalysisView.swift; sourceTree = "<group>"; };
 		3AACBDDAD1DBEF04FE2AE19A /* FumeMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FumeMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1918019226C47BAA78B7C4 /* MacTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacTheme.swift; sourceTree = "<group>"; };
 		3E784A06781BBFC408980FBD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddingService.swift; sourceTree = "<group>"; };
 		4B91113E75831605DE97026F /* FileImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImportService.swift; sourceTree = "<group>"; };
@@ -283,6 +282,7 @@
 				BE62B65E7047EBC9CF22FDB1 /* MacExportService.swift */,
 				C7180E0CC1F16911B2671358 /* MacLibraryView.swift */,
 				73FD4F6E7A289DDAE2725F11 /* MacSpeechService.swift */,
+				3E1918019226C47BAA78B7C4 /* MacTheme.swift */,
 				FA09FDCB55624075752045A1 /* Views */,
 			);
 			name = Sources;
@@ -484,14 +484,11 @@
 				CF1789FB9F4C2F1019CC98EB /* AutomationService.swift in Sources */,
 				7132CB86A3852255111E42AB /* DatabaseService.swift in Sources */,
 				1BC43AB1140F176667FC60D3 /* EmbeddingService.swift in Sources */,
-				3963FAFFCC3522592A14F887 /* ErrorStateViews.swift in Sources */,
 				B7445C156E5C5AA514BB2256 /* FileImportService.swift in Sources */,
-				A47C8870FF032E00CBD92DB9 /* FumeGraphics.swift in Sources */,
 				4BBDD3EC04FD95D00327AD3C /* FumeMacApp.swift in Sources */,
 				562BE336452787CB6FC1CCD3 /* FumeMenuBar.swift in Sources */,
 				34704CD712BE7E1599AEA67D /* FumeR12R20.swift in Sources */,
 				A23C32E1532AF5826EFC1159 /* FumeR12R20Service.swift in Sources */,
-				B1E6B7B4C4C4BF42CB1D2898 /* FumeTheme.swift in Sources */,
 				C38AACF5D323194FE6F2EB05 /* HomeViewModel.swift in Sources */,
 				AA9785D4C21C05A7DD44E137 /* IntelligenceService.swift in Sources */,
 				4ECEEF9264B8D638490AAAD0 /* LibraryViewModel.swift in Sources */,
@@ -503,6 +500,7 @@
 				AE998E5B6FCA60A595E044B6 /* MacSettingsView.swift in Sources */,
 				722E73282351B763DF6F95CB /* MacSourceLibraryView.swift in Sources */,
 				CF58B08986463C1A8B2AF3E7 /* MacSpeechService.swift in Sources */,
+				A84BBAB765694D33DB8D9BC2 /* MacTheme.swift in Sources */,
 				730D34B99BB5DD4A8BC813D6 /* Models.swift in Sources */,
 				57896B27A02A8153F6F767E1 /* NetworkMonitor.swift in Sources */,
 				0A08A8BA7F4ACCB3FE4C1DBC /* NoteEnhancementService.swift in Sources */,

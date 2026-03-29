@@ -99,7 +99,11 @@ targets:
           - "SyncStatusView.swift"
           - "AIAnalysisView.swift"
           - "SourceDetailView.swift"
+          - "ErrorStateViews.swift"
+          - "FumeGraphics.swift"
       - path: Fume/Sources/Utilities
+        excludes:
+          - "FumeTheme.swift"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.fume.app.mac
