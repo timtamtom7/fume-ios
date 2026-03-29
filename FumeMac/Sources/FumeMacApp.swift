@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 
 @main
 struct FumeMacApp: App {
@@ -13,14 +14,15 @@ struct FumeMacApp: App {
             if !appState.hasCompletedOnboarding {
                 MacOnboardingView(appState: appState)
             } else {
-                MacMainView()
+                MacContentView()
             }
         }
-        .windowStyle(.titleBar)
+        .windowStyle(.hiddenTitleBar)
+        .windowResizability(.contentSize)
         .commands {
             CommandGroup(replacing: .newItem) {
                 Button("Add Source") {
-                    // Would open add content sheet
+                    NotificationCenter.default.post(name: .openAddSource, object: nil)
                 }
                 .keyboardShortcut("n", modifiers: .command)
             }
@@ -29,276 +31,87 @@ struct FumeMacApp: App {
 
     private func configureAppearance() {
         NSApplication.shared.appearance = NSAppearance(named: .darkAqua)
+        NSApp.setActivationPolicy(.accessory)
     }
 }
 
-// MARK: - macOS Main View (Desktop-adapted)
+// MARK: - Notifications
 
-struct MacMainView: View {
-    @StateObject private var viewModel = HomeViewModel()
-    @State private var showLibrary = false
-    @State private var selectedSource: Source?
-
-    var body: some View {
-        NavigationSplitView {
-            // Sidebar
-            VStack(spacing: 0) {
-                // Query section
-                querySection
-                    .padding()
-
-                Divider()
-
-                // Navigation
-                List {
-                    Button {
-                        showLibrary = false
-                    } label: {
-                        Label("Query", systemImage: "magnifyingglass")
-                    }
-                    .buttonStyle(.plain)
-                    .foregroundStyle(.primary)
-                    .padding(.vertical, 6)
-
-                    Button {
-                        showLibrary = true
-                    } label: {
-                        Label("Library", systemImage: "books.vertical")
-                    }
-                    .buttonStyle(.plain)
-                    .foregroundStyle(.primary)
-                    .padding(.vertical, 6)
-
-                    Divider()
-                        .padding(.vertical, 8)
-
-                    // Sync status
-                    HStack(spacing: 6) {
-                        Image(systemName: "checkmark.icloud")
-                            .foregroundStyle(.green)
-                        Text("iCloud synced")
-                            .font(.system(size: 12))
-                            .foregroundStyle(.secondary)
-                    }
-                    .padding(.vertical, 4)
-                }
-                .listStyle(.sidebar)
-                .scrollContentBackground(.hidden)
-            }
-            .frame(minWidth: 200)
-            .background(Color(nsColor: .controlBackgroundColor))
-        } detail: {
-            if showLibrary {
-                MacLibraryView()
-            } else {
-                MacQueryDetailView(viewModel: viewModel)
-            }
-        }
-        .frame(minWidth: 800, idealWidth: 1100, minHeight: 500)
-    }
-
-    // MARK: - Query Section
-
-    private var querySection: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Image(systemName: "brain.head.profile")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(Color(hex: "f59e0b"))
-
-                Text("Fume")
-                    .font(.system(size: 16, weight: .semibold))
-
-                Spacer()
-            }
-
-            TextField("Ask Fume anything...", text: $viewModel.queryText, axis: .vertical)
-                .textFieldStyle(.plain)
-                .font(.system(size: 14))
-                .lineLimit(1...3)
-                .padding(10)
-                .background(Color(nsColor: .textBackgroundColor))
-                .cornerRadius(8)
-                .onSubmit {
-                    Task { await viewModel.submitQuery() }
-                }
-
-            Button {
-                Task { await viewModel.submitQuery() }
-            } label: {
-                HStack {
-                    Image(systemName: "arrow.up.circle.fill")
-                    Text("Ask")
-                }
-                .font(.system(size: 13, weight: .semibold))
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 8)
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(Color(hex: "f59e0b"))
-            .disabled(viewModel.queryText.isEmpty || viewModel.isThinking)
-        }
-    }
+extension Notification.Name {
+    static let openAddSource = Notification.Name("openAddSource")
 }
 
-// MARK: - Mac Query Detail View
-
-struct MacQueryDetailView: View {
-    @ObservedObject var viewModel: HomeViewModel
-    @State private var selectedSource: Source?
-
-    var body: some View {
-        ZStack {
-            Color(nsColor: .windowBackgroundColor)
-                .ignoresSafeArea()
-
-            if viewModel.isThinking {
-                VStack(spacing: 16) {
-                    ProgressView()
-                        .tint(Color(hex: "f59e0b"))
-                    Text("Searching your knowledge base...")
-                        .font(.system(size: 14))
-                        .foregroundStyle(.secondary)
-                }
-            } else if let response = viewModel.response {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        // Answer
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: "brain.head.profile")
-                                    .foregroundStyle(Color(hex: "f59e0b"))
-                                Text("Answer")
-                                    .font(.system(size: 13, weight: .semibold))
-                            }
-
-                            Text(response.answer)
-                                .font(.system(size: 15))
-                                .lineSpacing(4)
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color(nsColor: .controlBackgroundColor))
-                        .cornerRadius(12)
-
-                        // Sources
-                        if !response.sources.isEmpty {
-                            HStack {
-                                Image(systemName: "doc.text")
-                                    .foregroundStyle(Color(hex: "f59e0b"))
-                                Text("From your notes:")
-                                    .font(.system(size: 13, weight: .semibold))
-                            }
-
-                            ForEach(response.sources) { match in
-                                MacSourceRow(source: match.source, excerpt: match.excerpt)
-                                    .onTapGesture {
-                                        selectedSource = match.source
-                                    }
-                            }
-                        }
-                    }
-                    .padding()
-                }
-            } else {
-                VStack(spacing: 20) {
-                    Image(systemName: "brain.head.profile")
-                        .font(.system(size: 60))
-                        .foregroundStyle(Color(hex: "f59e0b").opacity(0.4))
-
-                    Text("Ask Fume anything")
-                        .font(.system(size: 17, weight: .semibold))
-
-                    Text("Your second brain is ready to answer questions\nfrom your notes, articles, and voice memos.")
-                        .font(.system(size: 14))
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                }
-            }
-        }
-        .sheet(item: $selectedSource) { source in
-            MacSourceDetailSheet(source: source)
-        }
-    }
-}
-
-// MARK: - Mac Source Row
-
-struct MacSourceRow: View {
-    let source: Source
-    let excerpt: String
-
-    var body: some View {
-        HStack(spacing: 12) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color(nsColor: .controlBackgroundColor))
-                    .frame(width: 40, height: 40)
-
-                Image(systemName: source.type.icon)
-                    .font(.system(size: 16))
-                    .foregroundStyle(Color(hex: "f59e0b"))
-            }
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(source.title)
-                    .font(.system(size: 14, weight: .medium))
-                    .lineLimit(1)
-
-                Text(excerpt)
-                    .font(.system(size: 12))
-                    .foregroundStyle(.secondary)
-                    .lineLimit(2)
-            }
-
-            Spacer()
-
-            Text(source.formattedDate)
-                .font(.system(size: 11))
-                .foregroundStyle(.secondary)
-        }
-        .padding()
-        .background(Color(nsColor: .controlBackgroundColor))
-        .cornerRadius(10)
-    }
-}
-
-// MARK: - Mac Onboarding View
+// MARK: - macOS Main View (Three-Column Layout)
 
 struct MacOnboardingView: View {
     @ObservedObject var appState: AppState
 
     var body: some View {
-        VStack(spacing: 24) {
-            Image(systemName: "brain.head.profile")
-                .font(.system(size: 60))
-                .foregroundStyle(Color(hex: "f59e0b"))
+        VStack(spacing: 28) {
+            Spacer()
 
-            Text("Welcome to Fume")
-                .font(.system(size: 24, weight: .bold))
+            // Logo
+            ZStack {
+                Circle()
+                    .fill(FumeColors.accent.opacity(0.15))
+                    .frame(width: 100, height: 100)
 
-            Text("Your AI-powered second brain for macOS.\nAdd notes, articles, and voice memos.\nAsk anything — Fume answers from your knowledge.")
-                .font(.system(size: 15))
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
+                Image(systemName: "brain.head.profile")
+                    .font(.system(size: 44))
+                    .foregroundStyle(FumeColors.accent)
+            }
 
-            Button("Get Started") {
+            VStack(spacing: 8) {
+                Text("Welcome to Fume")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(FumeColors.textPrimary)
+
+                Text("Your AI-powered second brain for macOS")
+                    .font(.system(size: 15))
+                    .foregroundStyle(FumeColors.textSecondary)
+            }
+
+            VStack(alignment: .leading, spacing: 16) {
+                featureRow(icon: "note.text", text: "Capture notes, articles, and voice memos")
+                featureRow(icon: "brain", text: "Powered by on-device AI (Apple Neural Engine)")
+                featureRow(icon: "moon.fill", text: "Dark intelligence terminal aesthetic")
+                featureRow(icon: "lock.shield", text: "Your data stays local, always private")
+            }
+            .padding(.horizontal, 40)
+
+            Button {
                 appState.completeOnboarding()
+            } label: {
+                Text("Get Started")
+                    .font(.system(size: 15, weight: .semibold))
+                    .frame(minWidth: 160)
+                    .padding(.vertical, 12)
             }
             .buttonStyle(.borderedProminent)
-            .tint(Color(hex: "f59e0b"))
+            .tint(FumeColors.accent)
             .controlSize(.large)
+
+            Spacer()
+
+            Text("Fume v1.0.0")
+                .font(.system(size: 11))
+                .foregroundStyle(FumeColors.textSecondary.opacity(0.6))
+                .padding(.bottom, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(nsColor: .windowBackgroundColor))
+        .background(FumeColors.background)
     }
-}
 
-// MARK: - NSApp Appearance Helper
+    private func featureRow(icon: String, text: String) -> some View {
+        HStack(spacing: 14) {
+            Image(systemName: icon)
+                .font(.system(size: 14))
+                .foregroundStyle(FumeColors.accent)
+                .frame(width: 24)
 
-extension NSApplication {
-    static func makeThemedAppearance() {
-        let appearance = NSAppearance(named: .darkAqua)
-        NSApp.appearance = appearance
+            Text(text)
+                .font(.system(size: 14))
+                .foregroundStyle(FumeColors.textPrimary)
+        }
     }
 }
