@@ -40,6 +40,8 @@ struct MacContentView: View {
                             .padding(.horizontal, 8)
                             .background(selectedSourceType == type ? FumeColors.sourceHighlight : Color.clear)
                             .cornerRadius(8)
+                            .accessibilityLabel("\(type.label) source type filter")
+                            .accessibilityHint(selectedSourceType == type ? "Currently selected. Click to deselect." : "Click to filter by \(type.label).")
                         }
                     } header: {
                         Text("Sources")
@@ -70,6 +72,8 @@ struct MacContentView: View {
                     .buttonStyle(.borderedProminent)
                     .tint(FumeColors.accent)
                     .padding(12)
+                    .accessibilityLabel("Add new source")
+                    .accessibilityHint("Opens the add source sheet to create a new note, article, voice memo, or image.")
 
                     Divider()
 
@@ -83,6 +87,8 @@ struct MacContentView: View {
                         }
                         .buttonStyle(.plain)
                         .help("Ask AI")
+                        .accessibilityLabel("Ask Fume AI")
+                        .accessibilityHint("Opens the AI chat to ask questions about your knowledge base.")
 
                         Button {
                             showSettings = true
@@ -92,6 +98,8 @@ struct MacContentView: View {
                         }
                         .buttonStyle(.plain)
                         .help("Settings")
+                        .accessibilityLabel("Open settings")
+                        .accessibilityHint("Opens the settings panel to view statistics, export data, or manage your library.")
                     }
                     .padding(.vertical, 8)
                     .frame(maxWidth: .infinity)
@@ -155,6 +163,8 @@ struct MacContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(FumeColors.background)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Empty detail view. Select a source from the library or ask Fume AI a question.")
     }
 
     private func typeColor(for type: SourceType) -> Color {
@@ -206,6 +216,7 @@ struct MacNoteListView: View {
                 TextField("Search notes...", text: $searchQuery)
                     .textFieldStyle(.plain)
                     .font(.system(size: 13))
+                    .accessibilityLabel("Search notes")
                     .onSubmit {
                         Task {
                             await viewModel.performSearch(searchQuery)
@@ -222,6 +233,7 @@ struct MacNoteListView: View {
                             .foregroundStyle(FumeColors.textSecondary)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Clear search")
                 }
             }
             .padding(10)
@@ -335,6 +347,9 @@ struct MacNoteRow: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(isSelected ? FumeColors.accent.opacity(0.3) : Color.clear, lineWidth: 1)
         )
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(source.type.label): \(source.title). \(source.content.prefix(100))")
+        .accessibilityHint("Click to view details, or right-click for more options.")
     }
 
     private var typeColor: Color {

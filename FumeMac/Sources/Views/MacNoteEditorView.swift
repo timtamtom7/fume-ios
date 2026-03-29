@@ -92,6 +92,8 @@ struct MacNoteEditorView: View {
                                     )
                                 }
                                 .buttonStyle(.plain)
+                                .accessibilityLabel("Source type: \(type.label)")
+                                .accessibilityHint(selectedType == type ? "Currently selected." : "Click to select \(type.label) as the source type.")
                             }
                         }
                     }
@@ -108,6 +110,7 @@ struct MacNoteEditorView: View {
                             .padding(12)
                             .background(FumeColors.surfaceRaised)
                             .cornerRadius(10)
+                            .accessibilityLabel("Source title")
                     }
 
                     // Type-specific content
@@ -205,6 +208,8 @@ struct MacNoteEditorView: View {
                 .background(FumeColors.surfaceRaised)
                 .cornerRadius(10)
                 .frame(minHeight: 200)
+                .accessibilityLabel("Note content")
+                .accessibilityHint("Enter the text content of your note here.")
         }
     }
 
@@ -313,6 +318,8 @@ struct MacNoteEditorView: View {
                             }
                         }
                         .buttonStyle(.plain)
+                        .accessibilityLabel(isRecordingVoice ? "Stop recording. Duration: \(formatDuration(recordingDuration))" : "Start voice recording")
+                        .accessibilityHint(isRecordingVoice ? "Click to stop recording and transcribe." : "Click to start recording a voice memo. Fume will transcribe it automatically.")
 
                         Text(isRecordingVoice ? "Tap to stop (\(formatDuration(recordingDuration)))" : "Tap to record")
                             .font(.system(size: 13))

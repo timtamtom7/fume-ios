@@ -118,6 +118,7 @@ struct MacSettingsView: View {
         .padding(.vertical, 12)
         .background(FumeColors.surfaceRaised)
         .cornerRadius(12)
+        .accessibilityLabel("\(label): \(value) sources")
     }
 
     // MARK: - Export Section
@@ -160,6 +161,8 @@ struct MacSettingsView: View {
                         )
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Export as \(format.rawValue)")
+                    .accessibilityHint("Exports your knowledge base as a \(format.rawValue) file.")
                 }
             }
         }
@@ -204,6 +207,8 @@ struct MacSettingsView: View {
                     .buttonStyle(.bordered)
                     .tint(.red)
                     .disabled(isClearing)
+                    .accessibilityLabel("Clear all data")
+                    .accessibilityHint("Permanently deletes all your notes, articles, voice memos, and images. This action cannot be undone.")
                 }
                 .padding()
 

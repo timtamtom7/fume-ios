@@ -62,6 +62,7 @@ struct MacSourceLibraryView: View {
                     TextField("Filter sources...", text: $searchQuery)
                         .textFieldStyle(.plain)
                         .font(.system(size: 13))
+                        .accessibilityLabel("Filter sources")
                 }
                 .padding(8)
                 .background(FumeColors.surfaceRaised)
@@ -97,6 +98,8 @@ struct MacSourceLibraryView: View {
                     .cornerRadius(8)
                 }
                 .menuStyle(.automatic)
+                .accessibilityLabel("Sort order")
+                .accessibilityValue(sortOrder.rawValue)
             }
             .padding()
 
@@ -183,6 +186,9 @@ struct MacSourceLibraryView: View {
             .cornerRadius(8)
         }
         .buttonStyle(.plain)
+        .accessibilityLabel("\(label) filter")
+        .accessibilityValue("\(count) sources")
+        .accessibilityHint(isSelected ? "Currently selected. Click to show all sources." : "Click to filter by \(label).")
     }
 
     private var emptyState: some View {
@@ -292,6 +298,9 @@ struct LibraryCard: View {
             RoundedRectangle(cornerRadius: 14)
                 .stroke(isSelected ? FumeColors.accent.opacity(0.4) : FumeColors.border.opacity(0.5), lineWidth: 1)
         )
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(source.type.label): \(source.title). \(source.content.prefix(100))")
+        .accessibilityHint("Click to select this source.")
     }
 
     private var typeColor: Color {

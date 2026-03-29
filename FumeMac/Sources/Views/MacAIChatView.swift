@@ -242,6 +242,8 @@ struct MacAIChatView: View {
             Spacer()
         }
         .id("bottom")
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Fume is thinking. Searching your knowledge base.")
     }
 
     // MARK: - Welcome State
@@ -277,6 +279,8 @@ struct MacAIChatView: View {
                             .cornerRadius(12)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Example query: \(query)")
+                    .accessibilityHint("Click to submit this example question to Fume AI.")
                 }
             }
         }
@@ -296,6 +300,7 @@ struct MacAIChatView: View {
                 .padding(12)
                 .background(FumeColors.surfaceRaised)
                 .cornerRadius(12)
+                .accessibilityLabel("Question input")
                 .onSubmit {
                     Task { await submitQuery() }
                 }
@@ -309,6 +314,8 @@ struct MacAIChatView: View {
             }
             .buttonStyle(.plain)
             .disabled(inputText.isEmpty || viewModel.isThinking)
+            .accessibilityLabel("Send question")
+            .accessibilityHint(inputText.isEmpty ? "Enter a question first." : "Submits your question to Fume AI.")
         }
         .padding()
         .background(FumeColors.surface)
