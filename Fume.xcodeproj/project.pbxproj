@@ -37,12 +37,14 @@
 		57896B27A02A8153F6F767E1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534561019EDDC30A1997B809 /* NetworkMonitor.swift */; };
 		5BCE5EDE1053C38380AC0158 /* RealContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F279C7648779893FB8CEE2E /* RealContent.swift */; };
 		5E429466ED639ED23F7CCD0C /* SourceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58664ACE4BF6E9E7387B6737 /* SourceDetailView.swift */; };
+		621640A0BCC00F3061381193 /* AIFumesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C79DB99A7EBA8E816E3780 /* AIFumesService.swift */; };
 		6C2A042C3DF87BAEE00DF4AF /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */; };
 		7132CB86A3852255111E42AB /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */; };
 		722E73282351B763DF6F95CB /* MacSourceLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B23EF3215B1AD3384D948F9 /* MacSourceLibraryView.swift */; };
 		730D34B99BB5DD4A8BC813D6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86E3DDF41D2F33EFB1E804 /* Models.swift */; };
 		82E3FB5C9EFA0AA7430ABE38 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BC094EFF70E4FEAD152EB /* HomeViewModel.swift */; };
 		84A2EA389278D68699F3BCD4 /* AIQueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */; };
+		86DF3DC3F20F212B926D3D87 /* AutoTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EDEBC52DB6FA4F11168A89 /* AutoTagService.swift */; };
 		8C03A0B7BE7EDC4D4F7AE809 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D86E3DDF41D2F33EFB1E804 /* Models.swift */; };
 		8E1E8416DA73A2E2110E1D9C /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCF5477C27CBAEAA1DBD452 /* SyncService.swift */; };
 		90077EB68CBE4201119BA1C1 /* MacLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7180E0CC1F16911B2671358 /* MacLibraryView.swift */; };
@@ -73,6 +75,7 @@
 		C3D5AC9E788650AFD30E166B /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 3BD586D6D0D56DC0C65F8F76 /* SQLite */; };
 		CF1789FB9F4C2F1019CC98EB /* AutomationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BCA0E725C31F7A9460D90B /* AutomationService.swift */; };
 		CF58B08986463C1A8B2AF3E7 /* MacSpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD4F6E7A289DDAE2725F11 /* MacSpeechService.swift */; };
+		D2C914271C92D52BBEFD487E /* AIFumesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C79DB99A7EBA8E816E3780 /* AIFumesService.swift */; };
 		DC9A469D593CE70F78A9AFB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884406290CCC42A705E3D21 /* ContentView.swift */; };
 		DEE4DEF85EEC476C81026CAD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3E784A06781BBFC408980FBD /* PrivacyInfo.xcprivacy */; };
 		E0AB04DB37CE1B01851095CE /* RealContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F279C7648779893FB8CEE2E /* RealContent.swift */; };
@@ -80,6 +83,7 @@
 		E4567CEB85AC12B89611075A /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A000A9143B0D3E9DD09E10 /* PricingView.swift */; };
 		F1675F944D95230E7EDD6796 /* VisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0588D907C35BEF8B596225CC /* VisionService.swift */; };
 		F293A839047218FECD5F54B1 /* URLFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */; };
+		F5E94A6BF3B968D401D4415E /* AutoTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EDEBC52DB6FA4F11168A89 /* AutoTagService.swift */; };
 		F6B8AC8063E44E82F464527B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D4EE04F2434A18EB439375 /* OnboardingView.swift */; };
 		F7BC3BD8E2FA49C676986E49 /* SyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCF5477C27CBAEAA1DBD452 /* SyncService.swift */; };
 		F7C66C9E23606C4A49817D98 /* FumeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7875135FF1895D40DDAE141 /* FumeWidget.swift */; };
@@ -99,6 +103,7 @@
 		3E1918019226C47BAA78B7C4 /* MacTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacTheme.swift; sourceTree = "<group>"; };
 		3E784A06781BBFC408980FBD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddingService.swift; sourceTree = "<group>"; };
+		47EDEBC52DB6FA4F11168A89 /* AutoTagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoTagService.swift; sourceTree = "<group>"; };
 		4B91113E75831605DE97026F /* FileImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImportService.swift; sourceTree = "<group>"; };
 		504CFF2652A0EF7D9584AABE /* FumeMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeMenuBar.swift; sourceTree = "<group>"; };
 		534561019EDDC30A1997B809 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -135,6 +140,7 @@
 		CAC14FF0E6B8061D02ED5EF1 /* Fume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fume.entitlements; sourceTree = "<group>"; };
 		CE79D2D877BCE3C5B3270EA9 /* URLFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFetchService.swift; sourceTree = "<group>"; };
 		D01091D7B2BA2958DBCF2FB4 /* FumeWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FumeWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1C79DB99A7EBA8E816E3780 /* AIFumesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFumesService.swift; sourceTree = "<group>"; };
 		DB4201DC25C852B2664DBE76 /* FumeMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeMacApp.swift; sourceTree = "<group>"; };
 		DB4798541EA4B5BFFEE0CA3D /* FumeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FumeTheme.swift; sourceTree = "<group>"; };
 		E13AC10191A0DF5CDAEA9177 /* MacSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSettingsView.swift; sourceTree = "<group>"; };
@@ -255,8 +261,10 @@
 		6DE7FB3340D596028E194E8E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D1C79DB99A7EBA8E816E3780 /* AIFumesService.swift */,
 				EBB2DA8F5BAEF8E1E0A772E8 /* AIQueryService.swift */,
 				60BCA0E725C31F7A9460D90B /* AutomationService.swift */,
+				47EDEBC52DB6FA4F11168A89 /* AutoTagService.swift */,
 				BFFB0FB8624678124BFD3C83 /* DatabaseService.swift */,
 				45267DDA3CBC97FFE73BB3FD /* EmbeddingService.swift */,
 				6FA7DAA3C1E69A59D9D162F8 /* ExportService.swift */,
@@ -479,8 +487,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				621640A0BCC00F3061381193 /* AIFumesService.swift in Sources */,
 				84A2EA389278D68699F3BCD4 /* AIQueryService.swift in Sources */,
 				576CFB7EA3350CAEFE83E3B1 /* AppState.swift in Sources */,
+				86DF3DC3F20F212B926D3D87 /* AutoTagService.swift in Sources */,
 				CF1789FB9F4C2F1019CC98EB /* AutomationService.swift in Sources */,
 				7132CB86A3852255111E42AB /* DatabaseService.swift in Sources */,
 				1BC43AB1140F176667FC60D3 /* EmbeddingService.swift in Sources */,
@@ -516,10 +526,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2F5E408F43D21E626CC2BC /* AIAnalysisView.swift in Sources */,
+				D2C914271C92D52BBEFD487E /* AIFumesService.swift in Sources */,
 				A9C8FBF4E79001CB2360EFA9 /* AIQueryService.swift in Sources */,
 				ABAF1D24086E56BBDD1F205A /* AddContentSheet.swift in Sources */,
 				3F82BCB2329FFFD422164A21 /* AddContentViewModel.swift in Sources */,
 				C2CCD172B22967C3E87AA742 /* AppState.swift in Sources */,
+				F5E94A6BF3B968D401D4415E /* AutoTagService.swift in Sources */,
 				2E3433344DE863B57B680931 /* AutomationService.swift in Sources */,
 				DC9A469D593CE70F78A9AFB3 /* ContentView.swift in Sources */,
 				25120B71D21FA4FF2623278E /* DatabaseService.swift in Sources */,
