@@ -45,6 +45,8 @@ struct MenuBarContent: View {
                         .foregroundStyle(Color.blue)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("Open Fume")
+                .accessibilityHint("Opens the Fume main window")
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 10)
@@ -78,6 +80,8 @@ struct MenuBarContent: View {
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(FumeColors.textSecondary)
+                .accessibilityLabel("Go Back")
+                .accessibilityHint("Returns to the main menu")
 
                 Text("Quick Note")
                     .font(.system(size: 13, weight: .semibold))
@@ -111,6 +115,8 @@ struct MenuBarContent: View {
                 .buttonStyle(.borderedProminent)
                 .tint(FumeColors.accent)
                 .disabled(quickNoteTitle.isEmpty || quickNoteContent.isEmpty)
+                .accessibilityLabel("Save Note")
+                .accessibilityHint("Saves the quick note")
             }
         }
         .padding(12)
@@ -137,6 +143,8 @@ struct MenuBarContent: View {
             }
             .buttonStyle(.plain)
             .background(FumeColors.background)
+            .accessibilityLabel("Quick Add Note")
+            .accessibilityHint("Opens a form to quickly add a new note")
 
             Divider()
                 .padding(.vertical, 4)
@@ -160,6 +168,8 @@ struct MenuBarContent: View {
                             .foregroundStyle(FumeColors.textSecondary)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Clear search")
+                    .accessibilityHint("Clears the search query")
                 }
             }
             .padding(.horizontal, 12)
@@ -225,6 +235,8 @@ struct MenuBarContent: View {
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(FumeColors.textPrimary)
+                .accessibilityLabel("Open Fume")
+                .accessibilityHint("Opens the Fume main window")
 
                 Divider()
 
@@ -242,6 +254,8 @@ struct MenuBarContent: View {
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(FumeColors.textSecondary)
+                .accessibilityLabel("Quit Fume")
+                .accessibilityHint("Quits the Fume application")
             }
         }
     }

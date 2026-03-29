@@ -25,6 +25,7 @@ struct FumeMacApp: App {
                     NotificationCenter.default.post(name: .openAddSource, object: nil)
                 }
                 .keyboardShortcut("n", modifiers: .command)
+                .accessibilityLabel("Add Source")
             }
         }
     }
@@ -90,6 +91,8 @@ struct MacOnboardingView: View {
             .buttonStyle(.borderedProminent)
             .tint(FumeColors.accent)
             .controlSize(.large)
+            .accessibilityLabel("Get Started")
+            .accessibilityHint("Completes onboarding and starts using Fume")
 
             Spacer()
 

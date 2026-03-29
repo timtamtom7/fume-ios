@@ -78,6 +78,8 @@ struct MacLibraryView: View {
                         .foregroundStyle(.secondary)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("Clear search")
+                .accessibilityHint("Clears the search text")
             }
 
             if viewModel.isSearching {
@@ -152,7 +154,7 @@ struct MacLibraryRow: View {
 
                 Image(systemName: source.type.icon)
                     .font(.system(size: 18))
-                    .foregroundStyle(Color(hex: "f59e0b"))
+                    .foregroundStyle(FumeColors.accent)
             }
 
             VStack(alignment: .leading, spacing: 4) {
@@ -203,6 +205,8 @@ struct MacSourceDetailSheet: View {
                 Button("Done") {
                     dismiss()
                 }
+                .accessibilityLabel("Done")
+                .accessibilityHint("Closes the source detail sheet")
             }
             .padding()
 
@@ -214,13 +218,13 @@ struct MacSourceDetailSheet: View {
                     // Type badge
                     HStack(spacing: 8) {
                         Image(systemName: source.type.icon)
-                            .foregroundStyle(Color(hex: "f59e0b"))
+                            .foregroundStyle(FumeColors.accent)
                         Text(source.type.label)
                             .font(.system(size: 13, weight: .medium))
                     }
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
-                    .background(Color(hex: "f59e0b").opacity(0.15))
+                    .background(FumeColors.accent.opacity(0.15))
                     .cornerRadius(20)
 
                     // Content
