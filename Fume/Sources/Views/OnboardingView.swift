@@ -104,16 +104,16 @@ struct OnboardingScreen2: View {
             // Content type grid illustration
             VStack(spacing: 16) {
                 HStack(spacing: 16) {
-                    ContentTypeCard(icon: "note.text", label: "Notes", color: FumeColors.accent)
+                    ContentTypeCard(icon: "note.text", label: "Notes", color: FumeColors.sourceTypeNote)
                         .accessibilityLabel("Content type: Notes")
-                    ContentTypeCard(icon: "link", label: "Articles", color: Color(hex: "3b82f6"))
+                    ContentTypeCard(icon: "link", label: "Articles", color: FumeColors.sourceTypeArticle)
                         .accessibilityLabel("Content type: Articles")
                 }
 
                 HStack(spacing: 16) {
-                    ContentTypeCard(icon: "waveform", label: "Voice", color: Color(hex: "8b5cf6"))
+                    ContentTypeCard(icon: "waveform", label: "Voice", color: FumeColors.sourceTypeVoice)
                         .accessibilityLabel("Content type: Voice memos")
-                    ContentTypeCard(icon: "photo", label: "Images", color: Color(hex: "10b981"))
+                    ContentTypeCard(icon: "photo", label: "Images", color: FumeColors.sourceTypeImage)
                         .accessibilityLabel("Content type: Images")
                 }
             }

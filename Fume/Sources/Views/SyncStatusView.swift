@@ -86,7 +86,7 @@ struct SyncStatusBar: View {
         HStack(spacing: 8) {
             Image(systemName: "checkmark.icloud")
                 .font(.system(size: 12, weight: .medium))
-                .foregroundStyle(Color(hex: "10b981"))
+                .foregroundStyle(FumeColors.semanticSuccess)
 
             if let lastSynced = lastSynced {
                 Text("Synced \(lastSynced.formatted(.relative(presentation: .named)))")
@@ -156,7 +156,7 @@ struct SyncStatusBar: View {
         HStack(spacing: 8) {
             Image(systemName: "exclamationmark.icloud")
                 .font(.system(size: 12, weight: .medium))
-                .foregroundStyle(Color(hex: "ef4444"))
+                .foregroundStyle(FumeColors.semanticError)
 
             Text(message)
                 .font(.system(size: 12))
@@ -322,7 +322,7 @@ struct SyncSettingsView: View {
                         Section {
                             Text(error)
                                 .font(.system(size: 13))
-                                .foregroundStyle(Color(hex: "ef4444"))
+                                .foregroundStyle(FumeColors.semanticError)
                                 .listRowBackground(FumeColors.surfaceRaised)
                         }
                     }

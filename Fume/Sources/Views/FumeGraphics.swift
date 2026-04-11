@@ -299,11 +299,11 @@ struct SourceTypeIcon: View {
 
     var iconColor: Color {
         switch type {
-        case .note: return FumeColors.accent
-        case .article: return Color(hex: "3b82f6")
-        case .voiceMemo: return Color(hex: "8b5cf6")
-        case .image: return Color(hex: "10b981")
-        case .pdf: return Color(hex: "ef4444")
+        case .note: return FumeColors.sourceTypeNote
+        case .article: return FumeColors.sourceTypeArticle
+        case .voiceMemo: return FumeColors.sourceTypeVoice
+        case .image: return FumeColors.sourceTypeImage
+        case .pdf: return FumeColors.sourceTypePDF
         }
     }
 }
@@ -487,9 +487,9 @@ struct ImportSourceIcon: View {
 
     private var iconBackgroundColor: Color {
         switch type {
-        case .obsidian: return Color(hex: "8b5cf6")
-        case .notion: return Color(hex: "ffffff")
-        case .appleNotes: return FumeColors.accent
+        case .obsidian: return FumeColors.importObsidian
+        case .notion: return FumeColors.importNotion
+        case .appleNotes: return FumeColors.importAppleNotes
         }
     }
 }

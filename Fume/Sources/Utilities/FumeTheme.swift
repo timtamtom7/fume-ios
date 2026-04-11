@@ -76,6 +76,15 @@ struct FumeColors {
     static let accentDim = Color(hex: "d97706")
     /// Text-safe amber for text foreground (WCAG AA compliant on dark backgrounds)
     static let accentText = Color(hex: "fbbf24")
+    /// Semantic colors
+    static let semanticSuccess = Color(hex: "10b981")
+    static let semanticWarning = Color(hex: "f59e0b")
+    static let semanticError = Color(hex: "ef4444")
+    static let semanticInfo = Color(hex: "60a5fa")
+    /// Import source type colors
+    static let importObsidian = Color(hex: "8b5cf6")
+    static let importNotion = Color(hex: "ffffff")
+    static let importAppleNotes = Color(hex: "f59e0b")
     /// Source type colors — all accessible on dark backgrounds
     static let sourceTypeNote = Color(hex: "f59e0b")
     static let sourceTypeArticle = Color(hex: "60a5fa")
