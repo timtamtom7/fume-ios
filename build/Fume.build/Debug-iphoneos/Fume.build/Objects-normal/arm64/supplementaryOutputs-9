@@ -1,0 +1,23 @@
+{
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/SpeechService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SpeechService.swiftdeps"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/SyncService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncService.swiftdeps"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/SyncStatusView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SyncStatusView.swiftdeps"
+  }
+}

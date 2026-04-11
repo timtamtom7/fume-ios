@@ -1,0 +1,30 @@
+{
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/App/FumeApp.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeApp.swiftdeps"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Models/FumeR12R20.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20.swiftdeps"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Services/FumeR12R20Service.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20Service.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20Service.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20Service.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20Service.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeR12R20Service.swiftdeps"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/FumeGraphics.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/FumeGraphics.swiftdeps"
+  }
+}

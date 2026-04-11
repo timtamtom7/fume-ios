@@ -1,0 +1,23 @@
+{
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Utilities/RealContent.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/RealContent.swiftdeps"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/PricingView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/PricingView.swiftdeps"
+  },
+  "/Users/mauriello/Dev/fume-ios/Fume/Sources/Views/SourceDetailView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.d",
+    "diagnostics" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.dia",
+    "object" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/fume-ios/build/Fume.build/Debug-iphoneos/Fume.build/Objects-normal/arm64/SourceDetailView.swiftdeps"
+  }
+}

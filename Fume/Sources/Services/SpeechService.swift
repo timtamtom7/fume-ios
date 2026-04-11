@@ -6,7 +6,10 @@ actor SpeechService {
     static let shared = SpeechService()
 
     private var audioEngine: AVAudioEngine?
-    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    // nonisolated(unsafe) needed because AVAudioEngine and SFSpeechAudioBufferRecognitionRequest
+    // callbacks fire on dedicated audio/recognition threads, not the actor's serial executor.
+    // The tap closure and recognition task callbacks access these from their own threads safely.
+    private nonisolated(unsafe) var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
 
     private init() {}

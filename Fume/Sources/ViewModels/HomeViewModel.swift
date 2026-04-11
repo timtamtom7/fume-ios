@@ -37,6 +37,8 @@ final class HomeViewModel: ObservableObject {
             response = QueryResponse(answer: answer, sources: matches, query: queryText)
         } catch {
             currentError = .aiQueryFailed
+            isThinking = false
+            return
         }
 
         isThinking = false

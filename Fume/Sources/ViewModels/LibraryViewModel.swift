@@ -19,6 +19,11 @@ final class LibraryViewModel: ObservableObject {
     @Published var showImportError: Bool = false
 
     var filteredSources: [Source] {
+        // Return search results if available (semantic search results take precedence)
+        if !searchResults.isEmpty {
+            return searchResults.map { $0.source }
+        }
+
         var result = sources
 
         // Filter by type
@@ -31,16 +36,13 @@ final class LibraryViewModel: ObservableObject {
             result = result.filter { $0.tagIDs.contains(tagID) }
         }
 
-        // Filter by search text (local fallback)
-        if !searchText.isEmpty && searchResults.isEmpty {
+        // Filter by search text (local keyword fallback when no semantic results)
+        if !searchText.isEmpty {
             let lowercased = searchText.lowercased()
             result = result.filter {
                 $0.title.lowercased().contains(lowercased) ||
                 $0.content.lowercased().contains(lowercased)
             }
-        } else if searchResults.isEmpty {
-            // Use filtered sources for display when not searching
-            return result
         }
 
         return result

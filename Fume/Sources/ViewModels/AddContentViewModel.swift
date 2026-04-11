@@ -48,26 +48,24 @@ final class AddContentViewModel: ObservableObject {
         let title = noteTitle.isEmpty ? "Note \(formattedDate())" : noteTitle
         let content = noteText.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        Task {
-            let embedding = await embeddingService.generateEmbedding(for: content)
+        let embedding = await embeddingService.generateEmbedding(for: content)
 
-            let source = Source(
-                type: .note,
-                title: title,
-                content: content,
-                embedding: embedding
-            )
+        let source = Source(
+            type: .note,
+            title: title,
+            content: content,
+            embedding: embedding
+        )
 
-            do {
-                try await DatabaseService.shared.insertSource(source)
-                didSave = true
-            } catch {
-                errorMessage = error.localizedDescription
-                showError = true
-            }
-
+        do {
+            try await DatabaseService.shared.insertSource(source)
+            didSave = true
             isProcessing = false
             clearNoteFields()
+        } catch {
+            errorMessage = error.localizedDescription
+            showError = true
+            isProcessing = false
         }
     }
 
@@ -106,6 +104,17 @@ final class AddContentViewModel: ObservableObject {
 
     // MARK: - Voice Memo
     func startRecording() async {
+        // Check microphone permission before attempting to record
+        if !hasRecordingPermission {
+            // Re-request authorization
+            hasRecordingPermission = await speechService.requestAuthorization()
+            if !hasRecordingPermission {
+                errorMessage = "Microphone access denied. Enable in Settings > Privacy > Microphone."
+                showError = true
+                return
+            }
+        }
+
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setCategory(.record, mode: .default)

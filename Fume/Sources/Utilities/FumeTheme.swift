@@ -46,6 +46,23 @@ struct FumeTokens {
 
     // MARK: - Touch Targets (minimum 44pt per iOS HIG)
     static let minTouchTarget: CGFloat = 44
+
+    // MARK: - Animation Durations
+    static let animationDurationFast: Double = 0.15
+    static let animationDurationMedium: Double = 0.25
+    static let animationDurationSlow: Double = 0.35
+
+    // MARK: - Dynamic Type Support
+    /// Creates a font that scales with Dynamic Type accessibility settings
+    static func scaledFont(size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        .system(size: size, weight: weight, design: .default)
+    }
+
+    /// Creates a scaled font for a specific text style
+    static func scaledFont(textStyle: TextStyle, size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        .system(size: size, weight: weight, design: .default)
+            .textStyle(textStyle)
+    }
 }
 
 // MARK: - Fume Colors
@@ -54,8 +71,17 @@ struct FumeColors {
     static let surface = Color(hex: "141416")
     static let surfaceRaised = Color(hex: "1c1c1f")
     static let glassOverlay = Color(hex: "1e1e20").opacity(0.85)
+    /// Primary amber — decorative use only (backgrounds, icons, borders)
     static let accent = Color(hex: "f59e0b")
     static let accentDim = Color(hex: "d97706")
+    /// Text-safe amber for text foreground (WCAG AA compliant on dark backgrounds)
+    static let accentText = Color(hex: "fbbf24")
+    /// Source type colors — all accessible on dark backgrounds
+    static let sourceTypeNote = Color(hex: "f59e0b")
+    static let sourceTypeArticle = Color(hex: "60a5fa")
+    static let sourceTypeVoice = Color(hex: "a78bfa")
+    static let sourceTypeImage = Color(hex: "34d399")
+    static let sourceTypePDF = Color(hex: "f87171")
     static let textPrimary = Color(hex: "f4f4f5")
     static let textSecondary = Color(hex: "a1a1aa")
     static let sourceHighlight = Color(hex: "f59e0b").opacity(0.15)
@@ -182,6 +208,7 @@ struct AmberGlow: ViewModifier {
 
 struct FumePrimaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -194,7 +221,7 @@ struct FumePrimaryButtonStyle: ButtonStyle {
                     .fill(isEnabled ? (configuration.isPressed ? FumeColors.accentDim : FumeColors.accent) : FumeColors.surfaceRaised)
             )
             .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
-            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
+            .animation(reduceMotion ? .none : .easeInOut(duration: FumeTokens.animationDurationFast), value: configuration.isPressed)
             .onChange(of: configuration.isPressed) { _, isPressed in
                 if isPressed {
                     FumeHaptic.light()
@@ -207,6 +234,7 @@ struct FumePrimaryButtonStyle: ButtonStyle {
 
 struct FumeSecondaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -219,7 +247,7 @@ struct FumeSecondaryButtonStyle: ButtonStyle {
                     .stroke(isEnabled ? FumeColors.accent : FumeColors.border, lineWidth: 1)
             )
             .opacity(configuration.isPressed ? 0.7 : 1.0)
-            .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
+            .animation(reduceMotion ? .none : .easeInOut(duration: FumeTokens.animationDurationFast), value: configuration.isPressed)
             .onChange(of: configuration.isPressed) { _, isPressed in
                 if isPressed {
                     FumeHaptic.light()
