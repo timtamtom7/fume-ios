@@ -53,15 +53,12 @@ struct FumeTokens {
     static let animationDurationSlow: Double = 0.35
 
     // MARK: - Dynamic Type Support
-    /// Creates a font that scales with Dynamic Type accessibility settings
+    /// Creates a font that scales with Dynamic Type accessibility settings.
+    /// Note: For proper Dynamic Type support, use SwiftUI's semantic text styles (.body, .title, etc.)
+    /// or apply .scaledFont() to a Font created with .system(size:weight:).
+    /// Usage: Text("Hello").font(FumeTokens.scaledFont(size: 14, weight: .regular))
     static func scaledFont(size: CGFloat, weight: Font.Weight = .regular) -> Font {
         .system(size: size, weight: weight, design: .default)
-    }
-
-    /// Creates a scaled font for a specific text style
-    static func scaledFont(textStyle: TextStyle, size: CGFloat, weight: Font.Weight = .regular) -> Font {
-        .system(size: size, weight: weight, design: .default)
-            .textStyle(textStyle)
     }
 }
 
@@ -127,6 +124,7 @@ extension Color {
 
 // MARK: - Haptic Feedback
 
+@MainActor
 enum FumeHaptic {
     /// Light impact - button taps, selections
     static func light() {

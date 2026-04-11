@@ -452,7 +452,7 @@ struct HighlightedText: View {
         let lowercasedHighlight = highlight.lowercased()
         let words = lowercasedHighlight.split(separator: " ").map(String.init).filter { $0.count > 2 }
 
-        var result = Text("")
+        var attributedString = AttributedString("")
         var currentIndex = text.startIndex
 
         // Find all highlight ranges
@@ -474,23 +474,28 @@ struct HighlightedText: View {
         for (textRange, _) in ranges {
             // Add non-highlighted portion
             if currentIndex < textRange.lowerBound {
-                result = result + Text(String(text[currentIndex..<textRange.lowerBound])).foregroundColor(FumeColors.textSecondary)
+                var segment = AttributedString(String(text[currentIndex..<textRange.lowerBound]))
+                segment.foregroundColor = FumeColors.textSecondary
+                attributedString.append(segment)
             }
             // Add highlighted portion
             if currentIndex <= textRange.lowerBound {
-                result = result + Text(String(text[textRange.lowerBound..<textRange.upperBound]))
-                    .foregroundColor(FumeColors.accent)
-                    .fontWeight(.semibold)
+                var segment = AttributedString(String(text[textRange.lowerBound..<textRange.upperBound]))
+                segment.foregroundColor = FumeColors.accent
+                segment.font = .system(size: 15, weight: .semibold)
+                attributedString.append(segment)
                 currentIndex = textRange.upperBound
             }
         }
 
         // Add remaining text
         if currentIndex < text.endIndex {
-            result = result + Text(String(text[currentIndex...])).foregroundColor(FumeColors.textSecondary)
+            var segment = AttributedString(String(text[currentIndex...]))
+            segment.foregroundColor = FumeColors.textSecondary
+            attributedString.append(segment)
         }
 
-        return result
+        return Text(attributedString)
     }
 }
 

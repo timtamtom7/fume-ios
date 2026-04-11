@@ -156,13 +156,9 @@ actor AutomationService {
     func generateDailyDigest(sources: [Source]) async -> Digest? {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
-        guard let yesterday = calendar.date(byAdding: .day, value: -1, to: today) else {
-            return nil
-        }
 
         // Sources added today
         let todaySources = sources.filter { $0.createdAt >= today }
-        let yesterdaySources = sources.filter { $0.createdAt >= yesterday && $0.createdAt < today }
 
         guard !todaySources.isEmpty else { return nil }
 
